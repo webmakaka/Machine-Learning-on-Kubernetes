@@ -36,6 +36,7 @@ This book is for data scientists, data engineers, IT platform owners, AI product
 
 With the following software and hardware list you can run all code files present in the book (Chapter 1-11).
 
+
 ### Software and Hardware List
 
 
@@ -51,15 +52,3 @@ recommend running a virtual machine on Google Cloud or any other cloud platform
 
 We also provide a PDF file that has color images of the screenshots/diagrams used in this book. [Click here to download it](https://static.packt-cdn.com/downloads/9781803241807_ColorImages.pdf).
 
-
-### Related products <Other books you may enjoy>
-* The Kubernetes Workshop [[Packt]](https://www.packtpub.com/product/the-kubernetes-workshop/9781838820756?utm_source=github&utm_medium=repository&utm_campaign=9781838820756) [[Amazon]](https://www.amazon.com/dp/1838820752)
-
-* The Kubernetes Bible [[Packt]](https://www.packtpub.com/product/the-kubernetes-bible/9781838827694?utm_source=github&utm_medium=repository&utm_campaign=9781838827694) [[Amazon]](https://www.amazon.com/dp/1838827692)
-
-## Get to Know the Authors
-**Faisal Masood**
-is a principal architect at Red Hat. He has been helping teams to design and build data science and application platforms using OpenShift, Red Hat’s enterprise Kubernetes offering. Faisal has over 20 years of experience in building software and has been building microservices since the pre-Kubernetes era.
-
-**Ross Brigoli** 
-is an associate principal architect at Red Hat. He has been designing and building software in various industries for over 18 years. He has designed and built data platforms and workflow automation platforms. Before Red Hat, Ross led a data engineering team as an architect in the financial services industry. He currently designs and builds microservices architectures and machine learning solutions on OpenShift.

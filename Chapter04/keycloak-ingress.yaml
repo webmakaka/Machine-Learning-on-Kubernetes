@@ -6,9 +6,9 @@ metadata:
 spec:
   tls:
     - hosts:
-      - keycloak.192.168.49.2.nip.io
+      - keycloak.${MINIKUBE_IP_ADDR}.nip.io
   rules:
-  - host: keycloak.192.168.49.2.nip.io
+  - host: keycloak.${MINIKUBE_IP_ADDR}.nip.io
     http:
       paths:
       - backend:

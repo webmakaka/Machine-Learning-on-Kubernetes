@@ -49,7 +49,7 @@ spec:
           - name: AIRFLOW_HOST  
             value: airflow.${MINIKUBE_IP_ADDR}.nip.io
           - name: DAG_REPO
-            value: 'https://github.com/airflow-dags/dags/'
+            value: '${AIRFLOW_DAGS_REPO}'
 
         repoRef:
           name: manifests

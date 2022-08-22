@@ -23,4 +23,4 @@ spec:
 status:
   tags:
     - tag: latest
-      dockerImageReference: quay.io/ml-aml-workshop/elyra-spark:0.0.4
+      dockerImageReference: quay.io/ml-on-k8s/elyra-spark:0.0.4

@@ -6,8 +6,8 @@ metadata:
     app: pg-flights-data
 spec:
   ports:
-   - port: 5432
-     protocol: TCP
-     targetPort: 5432
+    - port: 5432
+      protocol: TCP
+      targetPort: 5432
   selector:
-   app: pg-flights-data
+    app: pg-flights-data

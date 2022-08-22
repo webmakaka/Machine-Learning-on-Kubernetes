@@ -1,4 +1,3 @@
-
 ---
 # Source: airflow/templates/scheduler/deployment.yaml
 apiVersion: apps/v1
@@ -29,8 +28,7 @@ spec:
       annotations:
         checksum/configmap: 01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b
     spec:
-
-      priorityClassName: ""
+      priorityClassName: ''
       # securityContext:
       #   fsGroup: 1001
       serviceAccountName: default
@@ -46,7 +44,7 @@ spec:
                     app.kubernetes.io/instance: app-aflow
                     app.kubernetes.io/component: scheduler
                 namespaces:
-                  - "ml-workshop"
+                  - 'ml-workshop'
                 topologyKey: kubernetes.io/hostname
               weight: 1
         nodeAffinity:
@@ -54,7 +52,12 @@ spec:
       initContainers:
         - name: waifordatabase
           image: 'registry.access.redhat.com/rhscl/postgresql-96-rhel7:latest'
-          command: ['sh', '-c', "until nslookup app-aflow-postgresql.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for airflow db service; sleep 5; done"]
+          command:
+            [
+              'sh',
+              '-c',
+              'until nslookup app-aflow-postgresql.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for airflow db service; sleep 5; done',
+            ]
 
       containers:
         - resources: {}
@@ -88,7 +91,7 @@ spec:
           image: 'k8s.gcr.io/git-sync/git-sync:v3.2.2'
         - name: airflow-scheduler
           image: quay.io/ml-on-k8s/airflow:2.2.3.scheduler
-          imagePullPolicy: "Always"
+          imagePullPolicy: 'Always'
           # securityContext:
           #   runAsUser: 1001
           env:
@@ -98,24 +101,24 @@ spec:
                   name: app-aflow-airflow
                   key: airflow-fernetKey
             - name: AIRFLOW_LOAD_EXAMPLES
-              value: "no"
+              value: 'no'
             - name: AIRFLOW_DATABASE_NAME
-              value: "bitnami_airflow"
+              value: 'bitnami_airflow'
             - name: AIRFLOW_DATABASE_USERNAME
-              value: "bn_airflow"
+              value: 'bn_airflow'
             - name: AIRFLOW_DATABASE_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: app-aflow-postgresql
                   key: postgresql-password
             - name: AIRFLOW_DATABASE_HOST
-              value: "app-aflow-postgresql"
+              value: 'app-aflow-postgresql'
             - name: AIRFLOW_DATABASE_PORT_NUMBER
-              value: "5432"
+              value: '5432'
             - name: REDIS_HOST
-              value: "app-aflow-redis-master"
+              value: 'app-aflow-redis-master'
             - name: REDIS_PORT_NUMBER
-              value: "6379"
+              value: '6379'
             - name: REDIS_PASSWORD
               valueFrom:
                 secretKeyRef:
@@ -126,15 +129,15 @@ spec:
             - name: AIRFLOW_WEBSERVER_HOST
               value: app-aflow-airflow
             - name: AIRFLOW_WEBSERVER_PORT_NUMBER
-              value: "8080"
+              value: '8080'
             - name: AIRFLOW__WEBSERVER__SECRET_KEY
-              value: "IKnowWhatYouDidLastYear"
+              value: 'IKnowWhatYouDidLastYear'
             - name: AIRFLOW_BASE_URL
               value: http://127.0.0.1:8080
             - name: AIRFLOW_LDAP_ENABLE
-              value: "no"
+              value: 'no'
             - name: AIRFLOW__WEBSERVER__SECRET_KEY
-              value: "IKnowWhatYouDidLastYear"
+              value: 'IKnowWhatYouDidLastYear'
           envFrom:
           ports:
             - name: task-logs
@@ -147,7 +150,7 @@ spec:
             requests: {}
       volumes:
         - name: dags-data
-          emptyDir: { }
+          emptyDir: {}
 
 ---
 # Source: airflow/templates/web/deployment.yaml
@@ -179,8 +182,7 @@ spec:
       annotations:
         checksum/configmap: 01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b
     spec:
-
-      priorityClassName: ""
+      priorityClassName: ''
 
       affinity:
         podAffinity:
@@ -194,7 +196,7 @@ spec:
                     app.kubernetes.io/instance: app-aflow
                     app.kubernetes.io/component: web
                 namespaces:
-                  - "ml-workshop"
+                  - 'ml-workshop'
                 topologyKey: kubernetes.io/hostname
               weight: 1
         nodeAffinity:
@@ -203,7 +205,12 @@ spec:
       initContainers:
         - name: waifordatabase
           image: 'registry.access.redhat.com/rhscl/postgresql-96-rhel7:latest'
-          command: ['sh', '-c', "until nslookup app-aflow-postgresql.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for airflow db service; sleep 5; done"]
+          command:
+            [
+              'sh',
+              '-c',
+              'until nslookup app-aflow-postgresql.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for airflow db service; sleep 5; done',
+            ]
 
       containers:
         - resources: {}
@@ -237,9 +244,9 @@ spec:
           image: 'k8s.gcr.io/git-sync/git-sync:v3.2.2'
         - name: airflow-web
           image: quay.io/ml-on-k8s/airflow:2.2.3.web.keycloak
-          imagePullPolicy: "Always"
-#          securityContext:
-#            runAsUser: 1001
+          imagePullPolicy: 'Always'
+          #          securityContext:
+          #            runAsUser: 1001
           env:
             - name: AIRFLOW_FERNET_KEY
               valueFrom:
@@ -247,25 +254,25 @@ spec:
                   name: app-aflow-airflow
                   key: airflow-fernetKey
             - name: AIRFLOW_LOAD_EXAMPLES
-              value: "no"
+              value: 'no'
             - name: AIRFLOW_DATABASE_NAME
-              value: "bitnami_airflow"
+              value: 'bitnami_airflow'
             - name: AIRFLOW_DATABASE_USERNAME
-              value: "bn_airflow"
+              value: 'bn_airflow'
             - name: AIRFLOW_DATABASE_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: app-aflow-postgresql
                   key: postgresql-password
             - name: AIRFLOW_DATABASE_HOST
-              value: "app-aflow-postgresql"
+              value: 'app-aflow-postgresql'
             - name: AIRFLOW_DATABASE_PORT_NUMBER
-              value: "5432"
+              value: '5432'
 
             - name: REDIS_HOST
-              value: "app-aflow-redis-master"
+              value: 'app-aflow-redis-master'
             - name: REDIS_PORT_NUMBER
-              value: "6379"
+              value: '6379'
             - name: REDIS_PASSWORD
               valueFrom:
                 secretKeyRef:
@@ -275,13 +282,13 @@ spec:
             - name: AIRFLOW_EXECUTOR
               value: CeleryExecutor
             - name: AIRFLOW_WEBSERVER_HOST
-              value: "0.0.0.0"
+              value: '0.0.0.0'
             - name: AIRFLOW_WEBSERVER_PORT_NUMBER
-              value: "8080"
+              value: '8080'
             - name: AIRFLOW__WEBSERVER__RBAC
-              value: "False"
+              value: 'False'
             - name: AIRFLOW__WEBSERVER__AUTHENTICATE
-              value: "False"
+              value: 'False'
             - name: AIRFLOW_USERNAME
               value: user
             - name: AIRFLOW_PASSWORD
@@ -292,25 +299,25 @@ spec:
             - name: AIRFLOW_BASE_URL
               value: http://127.0.0.1:8080
             - name: AIRFLOW_LDAP_ENABLE
-              value: "no"
+              value: 'no'
             - name: AIRFLOW__WEBSERVER__SECRET_KEY
-              value: "IKnowWhatYouDidLastYear"
+              value: 'IKnowWhatYouDidLastYear'
             - name: AUTH_ROLE_PUBLIC
-              value: "Public"
+              value: 'Public'
             - name: AIRFLOW__WEBSERVER__ENABLE_PROXY_FIX
-              value: "True"
+              value: 'True'
             - name: OAUTH_API_BASE_URL
-              value: "https://$(KEYCLOAK_URL)"
+              value: 'https://$(KEYCLOAK_URL)'
             # - name: REQUESTS_CA_BUNDLE
-            #   value: "/opt/bitnami/python/lib/python3.8/site-packages/certifi/cacert.pem" 
+            #   value: "/opt/bitnami/python/lib/python3.8/site-packages/certifi/cacert.pem"
             - name: REQUESTS_CA_BUNDLE
-              value: "" 
+              value: ''
             - name: CURL_CA_BUNDLE
-              value: "" 
-            - name: AUTH_ROLE_PUBLIC 
-              value: "Public"
+              value: ''
+            - name: AUTH_ROLE_PUBLIC
+              value: 'Public'
             - name: AIRFLOW__WEBSERVER__ENABLE_PROXY_FIX
-              value: "True"
+              value: 'True'
             - name: OAUTH_TOKEN_URL
               value: https://$(KEYCLOAK_URL)/auth/realms/master/protocol/openid-connect/token
             - name: OAUTH_AUTHORIZE_URL
@@ -318,7 +325,7 @@ spec:
             - name: CLIENT_ID
               value: 'aflow'
             - name: CLIENT_SECRET
-              value: '$(CLIENT_SECRET)'  
+              value: '$(CLIENT_SECRET)'
 
             - name: AIRFLOW_NAMESPACE
               value: ml-workshop
@@ -326,7 +333,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: airflow2-proxy
-                  key: token              
+                  key: token
 
           ports:
             - name: http
@@ -407,7 +414,7 @@ spec:
                     app.kubernetes.io/instance: app-aflow
                     app.kubernetes.io/component: primary
                 namespaces:
-                  - "ml-workshop"
+                  - 'ml-workshop'
                 topologyKey: kubernetes.io/hostname
               weight: 1
         nodeAffinity:
@@ -418,13 +425,12 @@ spec:
       containers:
         - name: app-aflow-postgresql
           image: quay.io/internaldatahub/postgresql-96-centos7:9.6
-          imagePullPolicy: "Always"
+          imagePullPolicy: 'Always'
           resources:
             requests:
               cpu: 250m
               memory: 256Mi
           env:
-
             - name: POSTGRESQL_ADMIN_PASSWORD
               valueFrom:
                 secretKeyRef:
@@ -432,7 +438,7 @@ spec:
                   key: postgresql-postgres-password
 
             - name: POSTGRESQL_USER
-              value: "bn_airflow"
+              value: 'bn_airflow'
 
             - name: POSTGRESQL_PASSWORD
               valueFrom:
@@ -440,7 +446,7 @@ spec:
                   name: app-aflow-postgresql
                   key: postgresql-password
             - name: POSTGRESQL_DATABASE
-              value: "bitnami_airflow"
+              value: 'bitnami_airflow'
 
           ports:
             - name: tcp-postgresql
@@ -471,17 +477,17 @@ spec:
         name: aflow-data
       spec:
         accessModes:
-          - "ReadWriteOnce"
+          - 'ReadWriteOnce'
         resources:
           requests:
-            storage: "8Gi"
+            storage: '8Gi'
 ---
 # Source: airflow/charts/redis/templates/master/statefulset.yaml
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: app-aflow-redis-master
-  namespace: "ml-workshop"
+  namespace: 'ml-workshop'
   labels:
     app.kubernetes.io/name: redis
     helm.sh/chart: redis-14.8.11
@@ -513,7 +519,6 @@ spec:
         checksum/scripts: 0b4fee4f0d3a3a781a82225288a8e70e92a1a08d2e396d21e84188a6b1906cc0
         checksum/secret: accf045d76eda92532bfdcc8e5ceaf21dda9888d6ba641c0d8bfb79cb11ebb6a
     spec:
-
       serviceAccountName: app-aflow-redis
       affinity:
         podAffinity:
@@ -527,7 +532,7 @@ spec:
                     app.kubernetes.io/instance: app-aflow
                     app.kubernetes.io/component: master
                 namespaces:
-                  - "ml-workshop"
+                  - 'ml-workshop'
                 topologyKey: kubernetes.io/hostname
               weight: 1
         nodeAffinity:
@@ -536,7 +541,7 @@ spec:
       containers:
         - name: redis
           image: quay.io/ml-on-k8s/redis-6:1-25
-          imagePullPolicy: "Always"
+          imagePullPolicy: 'Always'
           env:
             - name: REDIS_PASSWORD
               valueFrom:
@@ -553,7 +558,7 @@ spec:
             timeoutSeconds: 6
             successThreshold: 1
             failureThreshold: 5
-            tcpSocket: 
+            tcpSocket:
               port: 6379
           readinessProbe:
             initialDelaySeconds: 20
@@ -561,7 +566,7 @@ spec:
             timeoutSeconds: 2
             successThreshold: 1
             failureThreshold: 5
-            tcpSocket: 
+            tcpSocket:
               port: 6379
 
           resources:
@@ -583,10 +588,10 @@ spec:
           app.kubernetes.io/component: master
       spec:
         accessModes:
-          - "ReadWriteOnce"
+          - 'ReadWriteOnce'
         resources:
           requests:
-            storage: "8Gi"
+            storage: '8Gi'
 
 ---
 # Source: airflow/templates/worker/statefulset.yaml
@@ -609,7 +614,7 @@ spec:
   serviceName: app-aflow-airflow-worker-headless
   replicas: 1
   updateStrategy:
-    type: "RollingUpdate"
+    type: 'RollingUpdate'
   template:
     metadata:
       annotations:
@@ -621,8 +626,7 @@ spec:
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/component: worker
     spec:
-
-      priorityClassName: ""
+      priorityClassName: ''
       serviceAccountName: default
       affinity:
         podAffinity:
@@ -636,7 +640,7 @@ spec:
                     app.kubernetes.io/instance: app-aflow
                     app.kubernetes.io/component: worker
                 namespaces:
-                  - "ml-workshop"
+                  - 'ml-workshop'
                 topologyKey: kubernetes.io/hostname
               weight: 1
         nodeAffinity:
@@ -644,7 +648,12 @@ spec:
       initContainers:
         - name: waifordatabase
           image: 'registry.access.redhat.com/rhscl/postgresql-96-rhel7:latest'
-          command: ['sh', '-c', "until nslookup app-aflow-postgresql.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for airflow db service; sleep 5; done"]
+          command:
+            [
+              'sh',
+              '-c',
+              'until nslookup app-aflow-postgresql.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for airflow db service; sleep 5; done',
+            ]
 
       containers:
         - resources: {}
@@ -678,7 +687,7 @@ spec:
           image: 'k8s.gcr.io/git-sync/git-sync:v3.2.2'
         - name: airflow-worker
           image: quay.io/ml-on-k8s/airflow:2.2.3.worker
-          imagePullPolicy: "Always"
+          imagePullPolicy: 'Always'
           # securityContext:
           #   runAsUser: 1001
           resources:
@@ -691,25 +700,25 @@ spec:
                   name: app-aflow-airflow
                   key: airflow-fernetKey
             - name: AIRFLOW_LOAD_EXAMPLES
-              value: "no"
+              value: 'no'
             - name: AIRFLOW_DATABASE_NAME
-              value: "bitnami_airflow"
+              value: 'bitnami_airflow'
             - name: AIRFLOW_DATABASE_USERNAME
-              value: "bn_airflow"
+              value: 'bn_airflow'
             - name: AIRFLOW_DATABASE_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: app-aflow-postgresql
                   key: postgresql-password
             - name: AIRFLOW_DATABASE_HOST
-              value: "app-aflow-postgresql"
+              value: 'app-aflow-postgresql'
             - name: AIRFLOW_DATABASE_PORT_NUMBER
-              value: "5432"
+              value: '5432'
 
             - name: REDIS_HOST
-              value: "app-aflow-redis-master"
+              value: 'app-aflow-redis-master'
             - name: REDIS_PORT_NUMBER
-              value: "6379"
+              value: '6379'
             - name: REDIS_PASSWORD
               valueFrom:
                 secretKeyRef:
@@ -720,9 +729,9 @@ spec:
             - name: AIRFLOW_WEBSERVER_HOST
               value: app-aflow-airflow
             - name: AIRFLOW_WEBSERVER_PORT_NUMBER
-              value: "8080"
+              value: '8080'
             - name: AIRFLOW__WEBSERVER__SECRET_KEY
-              value: "IKnowWhatYouDidLastYear"
+              value: 'IKnowWhatYouDidLastYear'
 
           envFrom:
           ports:
@@ -752,5 +761,4 @@ spec:
 
       volumes:
         - name: dags-data
-          emptyDir: { }
-
+          emptyDir: {}

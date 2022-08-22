@@ -7,27 +7,26 @@ resources:
   - minio-password-secret.yaml
 
 commonLabels:
-  opendatahub.io/component: "false"
-  component.opendatahub.io/name: "mlflow"
-
+  opendatahub.io/component: 'false'
+  component.opendatahub.io/name: 'mlflow'
 
 configMapGenerator:
-- name: mlflowparameters
-  env: params.env
+  - name: mlflowparameters
+    env: params.env
 generatorOptions:
   disableNameSuffixHash: true
 vars:
-- name: MLFLOW_HOST
-  objref:
-    kind: ConfigMap
-    name: mlflowparameters
-    apiVersion: v1
-  fieldref:
-    fieldpath: data.MLFLOW_HOST
-- name: KEYCLOAK_URL
-  objref:
-    kind: ConfigMap
-    name: mlflowparameters
-    apiVersion: v1
-  fieldref:
-    fieldpath: data.KEYCLOAK_URL
+  - name: MLFLOW_HOST
+    objref:
+      kind: ConfigMap
+      name: mlflowparameters
+      apiVersion: v1
+    fieldref:
+      fieldpath: data.MLFLOW_HOST
+  - name: KEYCLOAK_URL
+    objref:
+      kind: ConfigMap
+      name: mlflowparameters
+      apiVersion: v1
+    fieldref:
+      fieldpath: data.KEYCLOAK_URL

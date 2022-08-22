@@ -10,16 +10,16 @@ metadata:
 spec:
   tls:
     - hosts:
-      - $(GRAFANA_HOST)
+        - $(GRAFANA_HOST)
 
   rules:
-  - host: $(GRAFANA_HOST)
-    http:
-      paths:
-      - backend:
-          service:
-            name: grafana
-            port:
-              number: 3000
-        path: /
-        pathType: ImplementationSpecific  
+    - host: $(GRAFANA_HOST)
+      http:
+        paths:
+          - backend:
+              service:
+                name: grafana
+                port:
+                  number: 3000
+            path: /
+            pathType: ImplementationSpecific

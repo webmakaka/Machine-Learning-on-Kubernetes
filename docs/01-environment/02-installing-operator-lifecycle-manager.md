@@ -1,4 +1,4 @@
-# Инсталляция Operator Lifecycle Manager (OLM)
+# Operator Lifecycle Manager (OLM) installation
 
 <br/>
 
@@ -15,6 +15,7 @@ $ kubectl apply -f https://github.com/operator-framework/operator-lifecycle-mana
 <br/>
 
 ```
+// 30 sec
 $ watch kubectl get pods -n olm
 ```
 
@@ -32,6 +33,7 @@ packageserver-7bf4799ddf-cfsdx     1/1     Running   0          84s
 <br/>
 
 ```
+// 45 sec
 $ kubectl get catalogsource -n olm
 NAME                    DISPLAY               TYPE   PUBLISHER        AGE
 operatorhubio-catalog   Community Operators   grpc   OperatorHub.io   91s

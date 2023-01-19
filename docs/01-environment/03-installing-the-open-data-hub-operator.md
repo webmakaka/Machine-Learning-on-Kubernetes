@@ -1,4 +1,4 @@
-# Инсталляция Open Data Hub (ODH) operator
+# Open Data Hub (ODH) operator installation
 
 <br/>
 
@@ -18,7 +18,7 @@ $ kubectl create -f Chapter04/odh-subscription.yaml
 <br/>
 
 ```
-// Нужно ждать пару минут
+// 120 sec
 $ watch kubectl get pods -n operators
 NAME                                   READY   STATUS    RESTARTS   AGE
 opendatahub-operator-b5f4c5757-d9td2   1/1     Running   0          15s

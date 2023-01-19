@@ -1,17 +1,76 @@
-# Запуск minikube
+# Run minikube
 
 <br/>
 
-Делаю:  
-13.09.2022
+Date:  
+19.01.2023 - not working anymore
 
 <br/>
 
 ```
-// 8 ядер маловато будет!
+$ lsb_release -a
+No LSB modules are available.
+Distributor ID:	Linuxmint
+Description:	Linux Mint 20.3
+Release:	20.3
+Codename:	una
+```
+
+<br/>
+
+```
+$ grep 'cpu cores' /proc/cpuinfo | uniq
+cpu cores	: 12
+
+$ echo "CPU threads: $(grep -c processor /proc/cpuinfo)"
+CPU threads: 24
+```
+
+<br/>
+
+```
+$ free -h
+              total        used        free      shared  buff/cache   available
+Mem:           31Gi       3,3Gi        20Gi       306Mi       7,8Gi        27Gi
+Swap:         2,0Gi          0B       2,0Gi
+```
+
+<br/>
+
+```
+$ kubectl version --client --short
+Flag --short has been deprecated, and will be removed in the future. The --short output will become the default.
+Client Version: v1.25.0
+Kustomize Version: v4.5.7
+```
+
+<br/>
+
+```
+$ minikube version
+minikube version: v1.28.0
+```
+
+<br/>
+
+```
+$ docker --version
+Docker version 20.10.22, build 3a2c30b
+```
+
+<br/>
+
+```
+$ kustomize version
+{Version:kustomize/v4.5.7 GitCommit:56d82a8378dfc8dc3b3b1085e5a6e67b82966bd7 BuildDate:2022-08-02T16:35:54Z GoOs:linux GoArch:amd64}
+```
+
+<br/>
+
+```
 $ export \
     PROFILE=marley-minikube \
-    CPUS=8 \
+    CPUS=10 \
     MEMORY=30G \
     HDD=80G \
     DRIVER=docker \
@@ -41,6 +100,12 @@ $ {
 
 <br/>
 
+```
+Creating docker container (CPUs=10, Memory=30720MB) ...
+```
+
+<br/>
+
     // При необходимости можно будет удалить профиль и все созданное в профиле следующей командой
     // $ minikube --profile ${PROFILE} stop && minikube --profile ${PROFILE} delete
 
@@ -49,7 +114,7 @@ $ {
 
 <br/>
 
-### Закачиваем образы
+### Download all needed images at once
 
 <br/>
 
@@ -83,6 +148,12 @@ $ {
 
     docker pull quay.io/ml-on-k8s/kaniko-container-builder:1.0.0
     docker pull quay.io/ml-on-k8s/airflow-python-runner:0.0.11
-
 }
 ```
+
+<!--
+```
+$ minikube --profile ${PROFILE} kubectl -- get sc
+NAME                 PROVISIONER                RECLAIMPOLICY   VOLUMEBINDINGMODE   ALLOWVOLUMEEXPANSION   AGE
+standard (default)   k8s.io/minikube-hostpath   Delete          Immediate           false                  3h4m
+``` -->

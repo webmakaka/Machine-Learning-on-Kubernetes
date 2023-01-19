@@ -1,4 +1,4 @@
-# Инсталляция Keycloak
+# Keycloak installation
 
 <br/>
 
@@ -10,6 +10,7 @@ $ kubectl create -f Chapter04/postgresdb/ -n keycloak
 <br/>
 
 ```
+// 30 sec
 $ watch kubectl get pods -n keycloak
 ```
 
@@ -22,6 +23,7 @@ $ kubectl create -f Chapter04/keycloak.yaml -n keycloak
 <br/>
 
 ```
+// 60 sec
 $ watch kubectl get pods -n keycloak
 ```
 

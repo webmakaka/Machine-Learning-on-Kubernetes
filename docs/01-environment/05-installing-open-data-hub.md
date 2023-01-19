@@ -1,4 +1,4 @@
-# Инсталляция Open Data Hub (ODH)
+# Open Data Hub (ODH) installation
 
 <br/>
 
@@ -10,6 +10,7 @@ $ kubectl create ns ml-workshop
 
 ```
 $ minikube ip --profile ${PROFILE}
+192.168.49.2
 ```
 
 <br/>
@@ -21,8 +22,11 @@ $ export MINIKUBE_IP_ADDR=192.168.49.2
 <br/>
 
 ```
-// Создать пустой репозиторий github с branch main
+// Crate empty github repo with branch name main
 https://github.com/webmak1/airflow-dags
+
+
+Also i added ssh token to github account
 ```
 
 <br/>
@@ -34,21 +38,49 @@ $ export AIRFLOW_DAGS_REPO=https://github.com/webmak1/airflow-dags.git
 <br/>
 
 ```
-// Проверка
+// Check if needed
 // $ envsubst < manifests/kfdef/ml-platform.yaml
 ```
 
 <br/>
 
 ```
-// Запуск
+// Run
 $ envsubst < manifests/kfdef/ml-platform.yaml | kubectl create -f - -n ml-workshop
 ```
 
 <br/>
 
 ```
-// Минут 15 ждать
+$ kubectl get events -n ml-workshop
+LAST SEEN   TYPE     REASON                  OBJECT                                MESSAGE
+16s         Normal   ExternalProvisioning    persistentvolumeclaim/jupyterhub-db   waiting for a volume to be created, either by external provisioner "k8s.io/minikube-hostpath" or manually created by system administrator
+16s         Normal   Provisioning            persistentvolumeclaim/jupyterhub-db   External provisioner is provisioning volume for claim "ml-workshop/jupyterhub-db"
+16s         Normal   ProvisioningSucceeded   persistentvolumeclaim/jupyterhub-db   Successfully provisioned volume pvc-65c0595c-d24b-4b19-8668-7f624337b811
+15s         Normal   Sync                    ingress/jupyterhub                    Scheduled for sync
+```
+
+```
+$ kubectl delete events -n ml-workshop
+```
+
+<!--
+
+$ kubectl get events -n ml-workshop
+$ kubectl get events -n ml-workshop
+
+$ kubectl get events
+$ kubectl delete events–all
+$ kubectl delete ns ml-workshop
+
+namespace "ml-workshop" deleted
+
+-->
+
+<br/>
+
+```
+// Need to wait something about 15 minutes
 $ watch kubectl get pods -n ml-workshop
 ```
 

@@ -118,9 +118,9 @@ spec:
           name: manifests
           path: manifests/flights-data
       name: flights-data
-  repos:
-    - name: kf-manifests
-      uri: https://github.com/kubeflow/manifests/archive/v1.2-branch.tar.gz
-    - name: manifests
-      uri: https://github.com/PacktPublishing/Machine-Learning-on-Kubernetes/tarball/main
-  version: master
+  # repos:
+  #   - name: kf-manifests
+  #     uri: https://github.com/kubeflow/manifests/archive/v1.2-branch.tar.gz
+  #   - name: manifests
+  #     uri: https://github.com/PacktPublishing/Machine-Learning-on-Kubernetes/tarball/main
+  # version: master

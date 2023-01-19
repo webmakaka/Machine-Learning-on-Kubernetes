@@ -2,6 +2,8 @@
 
 <br/>
 
+<!-- v0.23.1 -->
+
 ```
 $ kubectl apply -f https://github.com/operator-framework/operator-lifecycle-manager/releases/download/v0.19.1/crds.yaml
 ```

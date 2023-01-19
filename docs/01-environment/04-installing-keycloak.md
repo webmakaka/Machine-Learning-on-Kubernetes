@@ -14,6 +14,11 @@ $ kubectl create -f Chapter04/postgresdb/ -n keycloak
 $ watch kubectl get pods -n keycloak
 ```
 
+```
+NAME                        READY   STATUS    RESTARTS   AGE
+postgres-655d75f54b-xzvh6   1/1     Running   0          30s
+```
+
 <br/>
 
 ```

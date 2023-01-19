@@ -74,7 +74,7 @@ $ export \
     MEMORY=30G \
     HDD=80G \
     DRIVER=docker \
-    KUBERNETES_VERSION=v1.24.4
+    KUBERNETES_VERSION=v1.25.6
 ```
 
 <br/>

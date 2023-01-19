@@ -3,12 +3,6 @@
 <br/>
 
 ```
-$ kubectl create ns ml-workshop
-```
-
-<br/>
-
-```
 $ minikube ip --profile ${PROFILE}
 192.168.49.2
 ```
@@ -45,6 +39,12 @@ $ export AIRFLOW_DAGS_REPO=https://github.com/webmak1/airflow-dags.git
 <br/>
 
 ```
+$ kubectl create ns ml-workshop
+```
+
+<br/>
+
+```
 // Run
 $ envsubst < manifests/kfdef/ml-platform.yaml | kubectl create -f - -n ml-workshop
 ```
@@ -60,9 +60,9 @@ LAST SEEN   TYPE     REASON                  OBJECT                             
 15s         Normal   Sync                    ingress/jupyterhub                    Scheduled for sync
 ```
 
-```
+<!-- ```
 $ kubectl delete events -n ml-workshop
-```
+``` -->
 
 <!--
 
@@ -82,6 +82,43 @@ namespace "ml-workshop" deleted
 ```
 // Need to wait something about 15 minutes
 $ watch kubectl get pods -n ml-workshop
+```
+
+<br/>
+
+```
+// Need to wait something about 15 minutes
+$ kubectl logs opendatahub-operator-5fb4b95d46-trp5w -n operators
+```
+
+<br/>
+
+```
+***
+time="2023-01-19T20:01:10Z"
+
+
+level=warning msg="Encountered error applying application jupyterhub:  (kubeflow.error): Code 500 with message:
+
+
+Apply.Run : [
+
+
+  // $ vi manifests/jupyterhub/jupyterhub/base/jupyterhub-secret.yaml
+  failed to create typed patch object (ml-workshop/jupyterhub; /v1, Kind=Secret): .metadata.label: field not declared in schema,
+
+
+  // $ vi manifests/jupyterhub/jupyterhub/base/jupyterhub-rolebinding.yaml
+  failed to create typed patch object (ml-workshop/jupyterhub; rbac.authorization.k8s.io/v1, Kind=RoleBinding): .roleRef.namespace: field not declared in schema,
+
+
+  // $ vi manifests/jupyterhub/jupyterhub/base/jupyterhub-dc.yaml
+  failed to create typed patch object (ml-workshop/jupyterhub; apps/v1, Kind=Deployment): errors:\n  .spec.selector.app: field not declared in schema\n  .spec.strategy.recreateParams: field not declared in schema\n  .spec.triggers: field not declared in schema,
+
+  // $ vi manifests/jupyterhub/jupyterhub/base/jupyterhub-db-dc.yaml
+  failed to create typed patch object (ml-workshop/jupyterhub-db; apps/v1, Kind=StatefulSet): .spec.strategy: field not declared in schema
+
+]"
 ```
 
 <br/>

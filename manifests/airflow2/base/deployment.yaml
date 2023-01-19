@@ -136,8 +136,6 @@ spec:
               value: http://127.0.0.1:8080
             - name: AIRFLOW_LDAP_ENABLE
               value: 'no'
-            - name: AIRFLOW__WEBSERVER__SECRET_KEY
-              value: 'IKnowWhatYouDidLastYear'
           envFrom:
           ports:
             - name: task-logs
@@ -316,8 +314,6 @@ spec:
               value: ''
             - name: AUTH_ROLE_PUBLIC
               value: 'Public'
-            - name: AIRFLOW__WEBSERVER__ENABLE_PROXY_FIX
-              value: 'True'
             - name: OAUTH_TOKEN_URL
               value: https://$(KEYCLOAK_URL)/auth/realms/master/protocol/openid-connect/token
             - name: OAUTH_AUTHORIZE_URL

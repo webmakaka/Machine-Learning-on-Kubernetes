@@ -10,9 +10,9 @@ metadata:
 spec:
   serviceName: jupyterhub-db
   replicas: 1
-  selector:
-    # app: jupyterhub
-    deploymentconfig: jupyterhub-db
+  # selector:
+  #   app: jupyterhub
+  #   deploymentconfig: jupyterhub-db
   # strategy:
   #   type: RollingUpdate
   template:

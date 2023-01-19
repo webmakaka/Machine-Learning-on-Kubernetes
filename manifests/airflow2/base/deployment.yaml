@@ -312,8 +312,6 @@ spec:
               value: ''
             - name: CURL_CA_BUNDLE
               value: ''
-            - name: AUTH_ROLE_PUBLIC
-              value: 'Public'
             - name: OAUTH_TOKEN_URL
               value: https://$(KEYCLOAK_URL)/auth/realms/master/protocol/openid-connect/token
             - name: OAUTH_AUTHORIZE_URL
@@ -322,7 +320,6 @@ spec:
               value: 'aflow'
             - name: CLIENT_SECRET
               value: '$(CLIENT_SECRET)'
-
             - name: AIRFLOW_NAMESPACE
               value: ml-workshop
             - name: SA_SECRET_KEY

@@ -11,7 +11,7 @@ spec:
   serviceName: jupyterhub-db
   replicas: 1
   selector:
-    app: jupyterhub
+    # app: jupyterhub
     deploymentconfig: jupyterhub-db
   # strategy:
   #   type: RollingUpdate

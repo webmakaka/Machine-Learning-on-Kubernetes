@@ -12,9 +12,9 @@ metadata:
   name: jupyterhub
 spec:
   replicas: 1
-  selector:
-    # app: jupyterhub
-    deploymentconfig: jupyterhub
+  # selector:
+  #   app: jupyterhub
+  #   deploymentconfig: jupyterhub
   strategy:
     # recreateParams:
     #   timeoutSeconds: 1200

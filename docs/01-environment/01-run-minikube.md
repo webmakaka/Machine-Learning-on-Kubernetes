@@ -119,7 +119,7 @@ Creating docker container (CPUs=10, Memory=30720MB) ...
 <br/>
 
 ```
-$ eval $(minikube docker-env)
+$ eval $(minikube --profile ${PROFILE} docker-env)
 ```
 
 <br/>

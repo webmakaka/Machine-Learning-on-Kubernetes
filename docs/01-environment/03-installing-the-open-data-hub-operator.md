@@ -27,6 +27,7 @@ opendatahub-operator-b5f4c5757-d9td2   1/1     Running   0          15s
 <br/>
 
 ```
+// Restarts
 $ kubectl get packagemanifests -o wide -n olm | grep -I opendatahub
 ```
 

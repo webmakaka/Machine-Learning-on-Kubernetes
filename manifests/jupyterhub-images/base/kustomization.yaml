@@ -5,6 +5,7 @@ resources:
   - elyra-notebook-spark3-imagestream.yaml
   - customnotebook-imagestream.yaml
 
+
 commonLabels:
-  opendatahub.io/component: 'false'
-  component.opendatahub.io/name: 'custom-images'
+  opendatahub.io/component: "false"
+  component.opendatahub.io/name: "custom-images"

@@ -9,19 +9,20 @@ resources:
   - minio-job.yaml
 
 commonLabels:
-  opendatahub.io/component: 'false'
-  component.opendatahub.io/name: 'minio'
+  opendatahub.io/component: "false"
+  component.opendatahub.io/name: "minio"
+
 
 configMapGenerator:
-  - name: minioparameters
-    env: params.env
+- name: minioparameters
+  env: params.env
 generatorOptions:
   disableNameSuffixHash: true
 vars:
-  - name: MINIO_HOST
-    objref:
-      kind: ConfigMap
-      name: minioparameters
-      apiVersion: v1
-    fieldref:
-      fieldpath: data.MINIO_HOST
+- name: MINIO_HOST
+  objref:
+    kind: ConfigMap
+    name: minioparameters
+    apiVersion: v1
+  fieldref:
+    fieldpath: data.MINIO_HOST

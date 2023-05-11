@@ -1,3 +1,4 @@
+
 apiVersion: kfdef.apps.kubeflow.org/v1
 kind: KfDef
 metadata:
@@ -19,13 +20,13 @@ spec:
           - spark3
         parameters:
           - name: s3_endpoint_url
-            value: 'minio-ml-workshop.ml-workshop:9000'
-          - name: KEYCLOAK_URL
+            value: "minio-ml-workshop.ml-workshop:9000"
+          - name: KEYCLOAK_URL  
             value: keycloak-keycloak.apps.cluster-26hnv.26hnv.sandbox1766.opentlc.com
           - name: CLIENT_SECRET
-            value: '30fc8258-459b-47d8-b81e-16aabe31ce4f'
-          - name: JUPYTERHUB_HOST
-            value: jupyterhub-ml-workshop.apps.cluster-26hnv.26hnv.sandbox1766.opentlc.com
+            value: '30fc8258-459b-47d8-b81e-16aabe31ce4f'  
+          - name: JUPYTERHUB_HOST  
+            value:  jupyterhub-ml-workshop.apps.cluster-26hnv.26hnv.sandbox1766.opentlc.com 
 
         repoRef:
           name: manifests
@@ -38,12 +39,13 @@ spec:
       name: jupyterhub-images
     - kustomizeConfig:
         parameters:
-          - name: KEYCLOAK_URL
+          - name: KEYCLOAK_URL  
             value: keycloak-keycloak.apps.cluster-26hnv.26hnv.sandbox1766.opentlc.com
           - name: CLIENT_SECRET
             value: 'efbb6591-86d0-4270-a544-f47689460a85'
-          - name: AIRFLOW_HOST
-            value: airflow-ml-workshop.apps.cluster-26hnv.26hnv.sandbox1766.opentlc.com
+          - name: AIRFLOW_HOST  
+            value: airflow-ml-workshop.apps.cluster-26hnv.26hnv.sandbox1766.opentlc.com 
+
 
         repoRef:
           name: manifests
@@ -53,8 +55,8 @@ spec:
     - kustomizeConfig:
         parameters:
           - name: s3_endpoint_url
-            value: 'minio-ml-workshop.ml-workshop:9000'
-          - name: MINIO_HOST
+            value: "minio-ml-workshop.ml-workshop:9000"
+          - name: MINIO_HOST  
             value: minio-ml-workshop.apps.cluster-26hnv.26hnv.sandbox1766.opentlc.com
 
         repoRef:
@@ -63,9 +65,9 @@ spec:
       name: minio
     - kustomizeConfig:
         parameters:
-          - name: MLFLOW_HOST
+          - name: MLFLOW_HOST  
             value: mlflow-ml-workshop.apps.cluster-26hnv.26hnv.sandbox1766.opentlc.com
-          - name: KEYCLOAK_URL
+          - name: KEYCLOAK_URL  
             value: keycloak-keycloak.apps.cluster-26hnv.26hnv.sandbox1766.opentlc.com
 
         repoRef:
@@ -84,9 +86,9 @@ spec:
       name: radanalyticsio-spark-cluster
     - kustomizeConfig:
         parameters:
-          - name: GRAFANA_HOST
+          - name: GRAFANA_HOST  
             value: grafana-ml-workshop.apps.cluster-26hnv.26hnv.sandbox1766.opentlc.com
-          - name: KEYCLOAK_URL
+          - name: KEYCLOAK_URL  
             value: keycloak-keycloak.apps.cluster-26hnv.26hnv.sandbox1766.opentlc.com
           - name: CLIENT_SECRET
             value: 'efbb6591-86d0-4270-a544-f47689460a85'
@@ -110,3 +112,4 @@ spec:
     - name: manifests
       uri: https://github.com/PacktPublishing/Machine-Learning-on-Kubernetes/tarball/main
   version: master
+

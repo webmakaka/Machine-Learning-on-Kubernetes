@@ -1,13 +1,13 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  #  namespace: ml-workshop
+#  namespace: ml-workshop
   name: minio-ml-workshop
   labels:
     helm.sh/chart: s3-server-0.0.1
     app.kubernetes.io/name: minio
     app.kubernetes.io/instance: min
-    app.kubernetes.io/version: '0.0.1'
+    app.kubernetes.io/version: "0.0.1"
     app.kubernetes.io/managed-by: Helm
 spec:
   template:
@@ -33,10 +33,10 @@ spec:
           command:
             - /bin/sh
             - -c
-            - 'mc --config-dir=/config config host add velero http://minio-ml-workshop:9000 minio minio123 && mc --config-dir=/config mb --ignore-existing velero/data/ && mc --config-dir=/config mb --ignore-existing velero/model-stats/tensordata/ && mc --config-dir=/config mb --ignore-existing velero/models/ && mc --config-dir=/config cp /tmp/models.config velero/models && mc --config-dir=/config cp /tmp/prometheus_config.config velero/models && mc --config-dir=/config mb --ignore-existing velero/rawdata && mc --config-dir=/config policy set public velero/rawdata &&  mc --config-dir=/config mb --ignore-existing velero/mlflow && mc --config-dir=/config policy set public velero/mlflow &&  mc --config-dir=/config mb --ignore-existing velero/airflow && mc --config-dir=/config policy set public velero/airflow'
+            - "mc --config-dir=/config config host add velero http://minio-ml-workshop:9000 minio minio123 && mc --config-dir=/config mb --ignore-existing velero/data/ && mc --config-dir=/config mb --ignore-existing velero/model-stats/tensordata/ && mc --config-dir=/config mb --ignore-existing velero/models/ && mc --config-dir=/config cp /tmp/models.config velero/models && mc --config-dir=/config cp /tmp/prometheus_config.config velero/models && mc --config-dir=/config mb --ignore-existing velero/rawdata && mc --config-dir=/config policy set public velero/rawdata &&  mc --config-dir=/config mb --ignore-existing velero/mlflow && mc --config-dir=/config policy set public velero/mlflow &&  mc --config-dir=/config mb --ignore-existing velero/airflow && mc --config-dir=/config policy set public velero/airflow"
           volumeMounts:
             - name: config
-              mountPath: '/config'
+              mountPath: "/config"
             - mountPath: /tmp/models.config
               name: modelconfig
               subPath: models.config

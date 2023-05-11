@@ -15,19 +15,19 @@ metadata:
 spec:
   tls:
     - hosts:
-        - $(AIRFLOW_HOST)
+      - $(AIRFLOW_HOST)
 
   rules:
-    - host: $(AIRFLOW_HOST)
-      http:
-        paths:
-          - backend:
-              service:
-                name: app-aflow-airflow
-                port:
-                  number: 8080
-            path: /
-            pathType: ImplementationSpecific
+  - host: $(AIRFLOW_HOST)
+    http:
+      paths:
+      - backend:
+          service:
+            name: app-aflow-airflow
+            port:
+              number: 8080
+        path: /
+        pathType: ImplementationSpecific  
 # ---
 # kind: Route
 # apiVersion: route.openshift.io/v1
@@ -51,4 +51,5 @@ spec:
 #   tls:
 #     termination: edge
 #     insecureEdgeTerminationPolicy: None
+
 

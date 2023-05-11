@@ -19,11 +19,6 @@ $ kubectl apply -f https://github.com/operator-framework/operator-lifecycle-mana
 ```
 // 30 sec
 $ watch kubectl get pods -n olm
-```
-
-<br/>
-
-```
 NAME                               READY   STATUS    RESTARTS   AGE
 catalog-operator-fc7fb45b5-mq9cw   1/1     Running   0          94s
 olm-operator-765c45d458-f6rx2      1/1     Running   0          94s

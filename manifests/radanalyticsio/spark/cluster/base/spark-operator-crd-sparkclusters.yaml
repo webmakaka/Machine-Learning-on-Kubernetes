@@ -14,17 +14,17 @@ spec:
   # preserveUnknownFields: true
   scope: Namespaced
   versions:
-    - name: v1
-      served: true
-      storage: true
-      schema:
-        openAPIV3Schema:
-          description: >-
-            Defining the CRD so to use the as-is jhhub from ODH
+  - name: v1
+    served: true
+    storage: true
+    schema:
+     openAPIV3Schema:
+      description: >-
+        Defining the CRD so to use the as-is jhhub from ODH
+      type: object
+      properties:
+        spec:
           type: object
-          properties:
-            spec:
-              type: object
-              x-kubernetes-preserve-unknown-fields: true
-      subresources:
-        status: {}
+          x-kubernetes-preserve-unknown-fields: true
+    subresources:
+      status: {}      

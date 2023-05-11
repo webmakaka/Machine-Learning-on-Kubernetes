@@ -13,7 +13,7 @@ metadata:
     helm.sh/chart: s3-server-0.0.1
     app.kubernetes.io/name: minio
     app.kubernetes.io/instance: min
-    app.kubernetes.io/version: '0.0.1'
+    app.kubernetes.io/version: "0.0.1"
     app.kubernetes.io/managed-by: Helm
 ---
 # Source: s3-server/templates/minio.yaml
@@ -35,5 +35,5 @@ metadata:
     helm.sh/chart: s3-server-0.0.1
     app.kubernetes.io/name: minio
     app.kubernetes.io/instance: min
-    app.kubernetes.io/version: '0.0.1'
+    app.kubernetes.io/version: "0.0.1"
     app.kubernetes.io/managed-by: Helm

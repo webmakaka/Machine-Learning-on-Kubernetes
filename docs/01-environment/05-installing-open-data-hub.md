@@ -17,7 +17,7 @@ $ export MINIKUBE_IP_ADDR=192.168.49.2
 
 ```
 // Crate empty github repo with branch name main
-https://github.com/webmak1/airflow-dags
+https://github.com/wildmakaka/airflow-dags
 
 
 Also i added ssh token to github account
@@ -26,7 +26,7 @@ Also i added ssh token to github account
 <br/>
 
 ```
-$ export AIRFLOW_DAGS_REPO=https://github.com/webmak1/airflow-dags.git
+$ export AIRFLOW_DAGS_REPO=https://github.com/wildmakaka/airflow-dags.git
 ```
 
 <br/>

@@ -49,16 +49,6 @@ spec:
       - name: keycloak
         image: quay.io/keycloak/keycloak:15.0.2
         env:
-        - name: DB_VENDOR 
-          value: "POSTGRES"
-        - name: DB_ADDR 
-          value: "postgres"
-        - name: DB_DATABASE 
-          value: "postgresdb"
-        - name: DB_USER
-          value: "admin1"
-        - name: DB_PASSWORD 
-          value: "pA55w0rd123"        
         - name: KEYCLOAK_USER
           value: "admin"
         - name: KEYCLOAK_PASSWORD

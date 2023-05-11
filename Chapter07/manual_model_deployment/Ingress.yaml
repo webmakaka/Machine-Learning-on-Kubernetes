@@ -11,7 +11,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: model-test.${MINIKUBE_IP_ADDR}.nip.io
+  - host: <Host Name like model-test.192.168.61.72.nip.io>
     http:
       paths:
       - backend:

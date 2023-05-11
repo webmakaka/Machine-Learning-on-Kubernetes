@@ -35,23 +35,25 @@ metadata:
     helm.sh/chart: s3-server-0.0.1
     app.kubernetes.io/name: minio
     app.kubernetes.io/instance: min
-    app.kubernetes.io/version: '0.0.1'
+    app.kubernetes.io/version: "0.0.1"
     app.kubernetes.io/managed-by: Helm
   annotations:
     openshift.io/host.generated: 'true'
 spec:
   tls:
     - hosts:
-        - $(MINIO_HOST)
+      - $(MINIO_HOST)
 
   rules:
-    - host: $(MINIO_HOST)
-      http:
-        paths:
-          - backend:
-              service:
-                name: minio-ml-workshop
-                port:
-                  number: 33933
-            path: /
-            pathType: ImplementationSpecific
+  - host: $(MINIO_HOST)
+    http:
+      paths:
+      - backend:
+          service:
+            name: minio-ml-workshop
+            port:
+              number: 33933
+        path: /
+        pathType: ImplementationSpecific      
+
+

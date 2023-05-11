@@ -7,6 +7,6 @@ roleRef:
   kind: Role
   name: sparkoperator.v1.1.0-spark-operator-role
 subjects:
-  - kind: ServiceAccount
-    name: spark-operator
-    namespace: ml-workshop
+- kind: ServiceAccount
+  name: spark-operator
+  namespace: ml-workshop

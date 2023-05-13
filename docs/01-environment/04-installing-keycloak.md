@@ -12,9 +12,6 @@ $ kubectl create -f Chapter04/postgresdb/ -n keycloak
 ```
 // 30 sec
 $ watch kubectl get pods -n keycloak
-```
-
-```
 NAME                        READY   STATUS    RESTARTS   AGE
 postgres-655d75f54b-xzvh6   1/1     Running   0          30s
 ```
@@ -22,7 +19,7 @@ postgres-655d75f54b-xzvh6   1/1     Running   0          30s
 <br/>
 
 ```
-$ kubectl create -f Chapter04/keycloak.yaml -n keycloak
+$ kubectl create -f Chapter04/keycloak/keycloak.yaml -n keycloak
 ```
 
 <br/>
@@ -30,13 +27,6 @@ $ kubectl create -f Chapter04/keycloak.yaml -n keycloak
 ```
 // 60 sec
 $ watch kubectl get pods -n keycloak
-```
-
-<br/>
-
-**response:**
-
-```
 NAME                        READY   STATUS    RESTARTS   AGE
 keycloak-75799d947b-l9mkw   1/1     Running   0          56s
 postgres-9db8ff595-vc8x2    1/1     Running   0          2m7s
@@ -60,13 +50,13 @@ $ export MINIKUBE_IP_ADDR=192.168.49.2
 
 ```
 // Check
-// $ envsubst < Chapter04/keycloak-ingress.yaml
+// $ envsubst < Chapter04/keycloak/keycloak-ingress.yaml
 ```
 
 <br/>
 
 ```
-$ envsubst < Chapter04/keycloak-ingress.yaml | kubectl create -f - -n keycloak
+$ envsubst < Chapter04/keycloak/keycloak-ingress.yaml | kubectl create -f - -n keycloak
 ```
 
 <br/>
@@ -90,7 +80,9 @@ https://keycloak.192.168.49.2.nip.io/auth/
 ### Importing the Keycloak configuration for the ODH components
 
 ```
-Keycloak WEB UI -> import -> Chapter05/realm-export.json
+Keycloak WEB UI
+
+import -> Chapter05/realm-export.json
 
 - If a resource exists - Skip
 
@@ -104,7 +96,7 @@ Import
 <br/>
 
 ```
-Users -> Add user ->
+Users -> Add user
 
 Username: mluser
 Email: mluser@example.com

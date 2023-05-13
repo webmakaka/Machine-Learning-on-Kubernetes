@@ -4,12 +4,12 @@ metadata:
   name: spark-cluster-sample
   namespace: ml-workshop
 spec:
-  customImage: 'quay.io/ml-on-k8s/spark:3.0.0'
+  customImage: 'quay.io/ml-on-k8s/spark:3.2.0'
 
   master:
     instances: '1'
     cpu: '1'
-    memory: 2Gi    
+    memory: 2Gi
   metrics: true
   sparkWebUI: false
   worker:
@@ -17,8 +17,8 @@ spec:
     cpu: '1'
     memory: 2Gi
   env:
-  - name: SPARK_WORKER_CORES
-    value: "1"
+    - name: SPARK_WORKER_CORES
+      value: '1'
   sparkConfiguration:
-  - name: spark.sql.conf.autoBroadcastJoinThreshold
-    value: "20971520"    
+    - name: spark.sql.conf.autoBroadcastJoinThreshold
+      value: '20971520'

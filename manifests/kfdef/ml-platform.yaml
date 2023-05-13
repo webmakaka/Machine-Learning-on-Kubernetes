@@ -23,13 +23,13 @@ spec:
 
         parameters:
           - name: s3_endpoint_url
-            value: "minio-ml-workshop.ml-workshop:9000"
-          - name: KEYCLOAK_URL  
-            value: keycloak.<IP Address>.nip.io
+            value: 'minio-ml-workshop.ml-workshop:9000'
+          - name: KEYCLOAK_URL
+            value: keycloak.${MINIKUBE_IP_ADDR}.nip.io
           - name: CLIENT_SECRET
-            value: '30fc8258-459b-47d8-b81e-16aabe31ce4f'  
-          - name: JUPYTERHUB_HOST  
-            value: jupyterhub.<IP Address>.nip.io
+            value: '30fc8258-459b-47d8-b81e-16aabe31ce4f'
+          - name: JUPYTERHUB_HOST
+            value: jupyterhub.${MINIKUBE_IP_ADDR}.nip.io
 
         repoRef:
           name: manifests
@@ -42,14 +42,14 @@ spec:
       name: jupyterhub-images
     - kustomizeConfig:
         parameters:
-          - name: KEYCLOAK_URL  
-            value: keycloak.<IP Address>.nip.io
+          - name: KEYCLOAK_URL
+            value: keycloak.${MINIKUBE_IP_ADDR}.nip.io
           - name: CLIENT_SECRET
             value: 'efbb6591-86d0-4270-a544-f47689460a85'
-          - name: AIRFLOW_HOST  
-            value: airflow.<IP Address>.nip.io
+          - name: AIRFLOW_HOST
+            value: airflow.${MINIKUBE_IP_ADDR}.nip.io
           - name: DAG_REPO
-            value: 'https://github.com/airflow-dags/dags/'
+            value: '${AIRFLOW_DAGS_REPO}'
 
         repoRef:
           name: manifests
@@ -59,9 +59,9 @@ spec:
     - kustomizeConfig:
         parameters:
           - name: s3_endpoint_url
-            value: "minio-ml-workshop.ml-workshop:9000"
-          - name: MINIO_HOST  
-            value: minio.<IP Address>.nip.io
+            value: 'minio-ml-workshop.ml-workshop:9000'
+          - name: MINIO_HOST
+            value: minio.${MINIKUBE_IP_ADDR}.nip.io
 
         repoRef:
           name: manifests
@@ -69,10 +69,10 @@ spec:
       name: minio
     - kustomizeConfig:
         parameters:
-          - name: MLFLOW_HOST  
-            value: mlflow.<IP Address>.nip.io
-          - name: KEYCLOAK_URL  
-            value: keycloak.<IP Address>.nip.io
+          - name: MLFLOW_HOST
+            value: mlflow.${MINIKUBE_IP_ADDR}.nip.io
+          - name: KEYCLOAK_URL
+            value: keycloak.${MINIKUBE_IP_ADDR}.nip.io
 
         repoRef:
           name: manifests
@@ -85,8 +85,8 @@ spec:
       name: odhseldon
     - kustomizeConfig:
         parameters:
-          - name: INGRESS_HOST  
-            value: .<IP Address>.nip.io
+          - name: INGRESS_HOST
+            value: .${MINIKUBE_IP_ADDR}.nip.io
 
         repoRef:
           name: manifests
@@ -94,10 +94,10 @@ spec:
       name: radanalyticsio-spark-cluster
     - kustomizeConfig:
         parameters:
-          - name: GRAFANA_HOST  
-            value: grafana.<IP Address>.nip.io
-          - name: KEYCLOAK_URL  
-            value: keycloak.<IP Address>.nip.io
+          - name: GRAFANA_HOST
+            value: grafana.${MINIKUBE_IP_ADDR}.nip.io
+          - name: KEYCLOAK_URL
+            value: keycloak.${MINIKUBE_IP_ADDR}.nip.io
           - name: CLIENT_SECRET
             value: 'efbb6591-86d0-4270-a544-f47689460a85'
 
@@ -122,6 +122,5 @@ spec:
     - name: kf-manifests
       uri: https://github.com/kubeflow/manifests/archive/v1.2-branch.tar.gz
     - name: manifests
-      uri: https://github.com/PacktPublishing/Machine-Learning-on-Kubernetes/tarball/main
+      uri: https://github.com/webmakaka/Machine-Learning-on-Kubernetes/tarball/master
   version: master
-

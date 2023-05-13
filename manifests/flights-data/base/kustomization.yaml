@@ -5,8 +5,5 @@ resources:
   - service.yaml
 
 commonLabels:
-  opendatahub.io/component: "false"
-  component.opendatahub.io/name: "flights-data"
-
-
-
+  opendatahub.io/component: 'false'
+  component.opendatahub.io/name: 'flights-data'

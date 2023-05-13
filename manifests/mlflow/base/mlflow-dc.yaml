@@ -18,7 +18,12 @@ spec:
       initContainers:
         - name: oauthproxy
           image: 'registry.access.redhat.com/rhscl/postgresql-96-rhel7:latest'
-          command: ['sh', '-c', "until nslookup mlflow-db.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for mlflow db service; sleep 2; done"]
+          command:
+            [
+              'sh',
+              '-c',
+              'until nslookup mlflow-db.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for mlflow db service; sleep 2; done',
+            ]
       containers:
         - name: oauth-proxy
           image: 'quay.io/oauth2-proxy/oauth2-proxy:v7.2.0'
@@ -30,13 +35,13 @@ spec:
             - '--client-secret=ad216993-cf3a-4742-ba17-b531d5c22046'
             - '--upstream=http://localhost:5500'
             - '--email-domain=*'
-            - '--cookie-secret=ad12ca-qw23asd55adcwbjep'            
+            - '--cookie-secret=ad12ca-qw23asd55adcwbjep'
             - '--oidc-issuer-url=https://$(KEYCLOAK_URL)/auth/realms/master'
             - '--allowed-role=mflow:admin'
             - --reverse-proxy=true
             - --skip-provider-button=true
             - --ssl-insecure-skip-verify=true
-            - --ssl-upstream-insecure-skip-verify=true            
+            - --ssl-upstream-insecure-skip-verify=true
           ports:
             - name: public
               containerPort: 5000
@@ -61,23 +66,23 @@ spec:
             - name: MLFLOW_S3_ENDPOINT_URL
               value: http://minio-ml-workshop:9000/
             - name: AWS_ACCESS_KEY_ID
-              value: "minio"
+              value: 'minio'
             - name: AWS_SECRET_ACCESS_KEY
               valueFrom:
                 secretKeyRef:
                   name: mlflow-store
-                  key: AWS_SECRET_ACCESS_KEY            
+                  key: AWS_SECRET_ACCESS_KEY
             - name: AWS_BUCKET_NAME
-              value: "mlflow"
+              value: 'mlflow'
             - name: MLFLOW_S3_IGNORE_TLS
-              value: "true"
+              value: 'true'
           ports:
             - name: http
               containerPort: 5500
               protocol: TCP
           resources:
             requests:
-              cpu: "500m"
+              cpu: '500m'
 
 ---
 apiVersion: v1
@@ -92,7 +97,6 @@ spec:
       name: http
     - port: 5500
       targetPort: 5500
-      name: http-mlflow  
+      name: http-mlflow
   selector:
     app: mlflow
-

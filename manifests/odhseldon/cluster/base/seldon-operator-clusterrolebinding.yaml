@@ -7,8 +7,6 @@ roleRef:
   kind: ClusterRole
   name: seldon-operator.v1.11.1-clusterrole
 subjects:
-- kind: ServiceAccount
-  name: seldon-manager
-  namespace: ml-workshop
-
-  
+  - kind: ServiceAccount
+    name: seldon-manager
+    namespace: ml-workshop

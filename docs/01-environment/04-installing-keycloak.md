@@ -3,6 +3,15 @@
 <br/>
 
 ```
+$ cd ~/projects/dev/ml/
+$ git clone https://github.com/webmakaka/Machine-Learning-on-Kubernetes.git
+$ cd ~/projects/dev/ml/Machine-Learning-on-Kubernetes
+$ git switch main
+```
+
+<br/>
+
+```
 $ kubectl create ns keycloak
 $ kubectl create -f Chapter04/postgresdb/ -n keycloak
 ```
@@ -122,4 +131,12 @@ Password Confirmation: mluser
 Temporary: OFF
 
 Set Password
+```
+
+<br/>
+
+```
+$ watch kubectl get pods -n operators
+NAME                                   READY   STATUS    RESTARTS   AGE
+opendatahub-operator-b5f4c5757-d9td2   1/1     Running   0          15s
 ```

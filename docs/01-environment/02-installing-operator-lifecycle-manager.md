@@ -2,10 +2,16 @@
 
 https://github.com/operator-framework/operator-lifecycle-manager/releases
 
-<br/>
+<!-- <br/>
 
 ```
 $ curl -sL https://github.com/operator-framework/operator-lifecycle-manager/releases/download/v0.24.0/install.sh | bash -s v0.24.0
+``` -->
+
+<br/>
+
+```
+$ curl -sL https://github.com/operator-framework/operator-lifecycle-manager/releases/download/v0.21.1/install.sh | bash -s v0.21.1
 ```
 
 <br/>

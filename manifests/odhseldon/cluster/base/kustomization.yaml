@@ -7,5 +7,3 @@ resources:
   - seldon-operator-rolebinding.yaml
   - seldon-operator-sa.yaml
   - seldon-operator-dc.yaml
-
-

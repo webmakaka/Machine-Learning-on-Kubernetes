@@ -6,15 +6,15 @@ metadata:
 spec:
   tls:
     - hosts:
-      - keycloak.${MINIKUBE_IP_ADDR}.nip.io
+        - keycloak.${MINIKUBE_IP_ADDR}.nip.io
   rules:
-  - host: keycloak.${MINIKUBE_IP_ADDR}.nip.io
-    http:
-      paths:
-      - backend:
-          service:
-            name: keycloak
-            port:
-              number: 8080
-        path: /
-        pathType: ImplementationSpecific
+    - host: keycloak.${MINIKUBE_IP_ADDR}.nip.io
+      http:
+        paths:
+          - backend:
+              service:
+                name: keycloak
+                port:
+                  number: 8080
+            path: /
+            pathType: ImplementationSpecific

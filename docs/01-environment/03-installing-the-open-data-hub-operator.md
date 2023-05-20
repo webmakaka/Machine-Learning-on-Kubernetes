@@ -66,8 +66,8 @@ opendatahub-operator   opendatahub-operator   community-operators-redhat   stabl
 <br/>
 
 ```
-$ kubectl describe catalogsource community-operators-redhat -n olm
-$ kubectl describe catalogsource operatorhubio-catalog -n olm
+// $ kubectl describe catalogsource community-operators-redhat -n olm
+// $ kubectl describe catalogsource operatorhubio-catalog -n olm
 ```
 
 <br/>

@@ -26,6 +26,18 @@ Also i added ssh token to github account
 <br/>
 
 ```
+echo "# airflow-dags" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin git@github.com:wildmakaka/airflow-dags.git
+git push -u origin main
+```
+
+<br/>
+
+```
 $ export AIRFLOW_DAGS_REPO=https://github.com/wildmakaka/airflow-dags.git
 ```
 
@@ -53,7 +65,8 @@ $ envsubst < manifests/kfdef/ml-platform.yaml | kubectl create -f - -n ml-worksh
 
 ```
 // Need to wait something about 15 minutes
-$ watch kubectl get pods -n ml-workshop
+// $ watch kubectl get pods -n ml-workshop
+$ k9s -n ml-workshop
 ```
 
 <br/>
@@ -207,4 +220,54 @@ LAST SEEN   TYPE     REASON                  OBJECT                             
 16s         Normal   Provisioning            persistentvolumeclaim/jupyterhub-db   External provisioner is provisioning volume for claim "ml-workshop/jupyterhub-db"
 16s         Normal   ProvisioningSucceeded   persistentvolumeclaim/jupyterhub-db   Successfully provisioned volume pvc-65c0595c-d24b-4b19-8668-7f624337b811
 15s         Normal   Sync                    ingress/jupyterhub                    Scheduled for sync
+```
+
+```
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: airflow2-proxy
+  annotations:
+    serviceaccounts.openshift.io/oauth-redirectreference.primary: '{"kind":"OAuthRedirectReference","apiVersion":"v1","reference":{"kind":"Route","name":"ap-airflow2"}}'
+
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: airflow2-proxy
+  annotations:
+    kubernetes.io/service-account.name: airflow2-proxy
+type: kubernetes.io/service-account-token
+```
+
+<br/>
+
+### Error: secret "airflow2-proxy" not found
+
+<br/>
+
+```yaml
+$ cat << EOF | kubectl apply -f -
+apiVersion: v1
+kind: Secret
+metadata:
+  name: airflow2-proxy
+  namespace: ml-workshop
+  annotations:
+    kubernetes.io/service-account.name: airflow2-proxy
+type: kubernetes.io/service-account-token
+EOF
+```
+
+<br/>
+
+```
+$ kubectl get secrets -n ml-workshop
+```
+
+<br/>
+
+```
+$ kubectl delete secret airflow2-proxy-token-trgls -n ml-workshop
 ```

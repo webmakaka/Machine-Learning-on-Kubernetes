@@ -4,7 +4,8 @@
 
 ```
 $ cd ~/projects/dev/ml/
-$ git clone https://github.com/webmakaka/Machine-Learning-on-Kubernetes.git
+// $ git clone https://github.com/webmakaka/Machine-Learning-on-Kubernetes.git
+$ git clone git@github.com:webmakaka/Machine-Learning-on-Kubernetes.git
 $ cd ~/projects/dev/ml/Machine-Learning-on-Kubernetes
 $ git switch main
 ```

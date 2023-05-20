@@ -86,7 +86,7 @@ spec:
     - kustomizeConfig:
         parameters:
           - name: INGRESS_HOST
-            value: .${MINIKUBE_IP_ADDR}.nip.io
+            value: wtf.${MINIKUBE_IP_ADDR}.nip.io
 
         repoRef:
           name: manifests

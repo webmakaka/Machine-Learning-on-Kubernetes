@@ -115,11 +115,13 @@ Creating docker container (CPUs=10, Memory=30720MB) ...
 
 <br/>
 
-    // При необходимости можно будет удалить профиль и все созданное в профиле следующей командой
-    // $ minikube --profile ${PROFILE} stop && minikube --profile ${PROFILE} delete
+```
+// stop and remove
+// $ minikube --profile ${PROFILE} stop && minikube --profile ${PROFILE} delete
 
-    // Стартовать остановленный minikube
-    // $ minikube --profile ${PROFILE} start
+// start stopped minikube
+// $ minikube --profile ${PROFILE} start
+```
 
 <br/>
 

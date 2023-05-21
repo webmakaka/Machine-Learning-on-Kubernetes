@@ -38,6 +38,7 @@ git push -u origin main
 <br/>
 
 ```
+// Original dags repo https://github.com/airflow-dags/dags/
 $ export AIRFLOW_DAGS_REPO=https://github.com/wildmakaka/airflow-dags.git
 ```
 

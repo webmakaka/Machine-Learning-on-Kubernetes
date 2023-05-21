@@ -43,6 +43,8 @@ postgres-9db8ff595-vc8x2    1/1     Running   0          2m7s
 
 ```
 
+<!--
+
 <br/>
 
 ```
@@ -54,6 +56,15 @@ $ minikube ip --profile ${PROFILE}
 
 ```
 $ export MINIKUBE_IP_ADDR=192.168.49.2
+```
+
+-->
+
+<br/>
+
+```
+$ export MINIKUBE_IP_ADDR=$(minikube ip --profile ${PROFILE})
+$ echo ${MINIKUBE_IP_ADDR}
 ```
 
 <br/>
@@ -82,7 +93,7 @@ keycloak   nginx   keycloak.192.168.49.2.nip.io   192.168.49.2   80, 443   4m8s
 ```
 // Administration Console
 // admin / admin
-https://keycloak.192.168.49.2.nip.io/auth/
+$ echo https://keycloak.${MINIKUBE_IP_ADDR}.nip.io/auth/
 ```
 
 <br/>

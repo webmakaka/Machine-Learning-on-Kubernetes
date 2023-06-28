@@ -2,7 +2,7 @@
 
 <br/>
 
-**В MLFlow должна быть зарегистирована модель mlflowdemo.**
+**In MLFlow mlflowdemo model should be registered**
 
 <br/>
 
@@ -67,7 +67,7 @@ requirements.txt
 
 <br/>
 
-Скопировать:
+Copy:
 
 Machine-Learning-on-Kubernetes/Chapter07/model_deploy_pipeline/model_build_push
 
@@ -95,7 +95,7 @@ $ vi Chapter07/manual_model_deployment/SeldonDeploy.yaml
 
 <br/>
 
-replace an image on imabe above
+replace an image on image above
 
 <br/>
 
@@ -340,7 +340,7 @@ http://model-test.192.168.49.2.nip.io/prometheus
 ### Apache Airflow
 
 // Create an empty repo  
-https://github.com/webmak1/airflow-dags
+https://github.com/wildmakaka/airflow-dags
 
 <br/>
 
@@ -465,7 +465,7 @@ Name: MyAirflow
 Apache Airflow UI Endpoint: https://airflow.192.168.49.2.nip.io
 Apache Airflow User Namespace: ml-workshop
 Github API Endpoint: https://api.github.com
-GitHub DAG Repository: webmak1/airflow-dags
+GitHub DAG Repository: wildmakaka/airflow-dags
 GitHub DAG Repository Branch: main
 Github Personal Access Token: YOUR_GITHUB_TOKEN
 
@@ -490,7 +490,7 @@ Runtime Configuration: MyAirflow
 
 В бранче появился python скрипт.
 
-https://github.com/webmak1/airflow-dags/tree/main
+https://github.com/wildmakaka/airflow-dags/tree/main
 
 <br/>
 

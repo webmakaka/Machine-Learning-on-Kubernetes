@@ -4,7 +4,7 @@ https://github.com/opendatahub-io/opendatahub-operator
 
 <br/>
 
-// looks this method is not working right now  
+// looks next method is not working right now  
 https://dev.operatorhub.io/operator/opendatahub-operator
 
 <br/>
@@ -47,19 +47,22 @@ metadata:
   namespace: operators
 spec:
   channel: stable
-  # installPlanApproval: Automatic
-  installPlanApproval: Manual
+  installPlanApproval: Automatic
+  # installPlanApproval: Manual
   name: opendatahub-operator
   source: community-operators-redhat
   sourceNamespace: olm
-  #startingCSV: opendatahub-operator.v1.4.2
+  # startingCSV: opendatahub-operator.v1.6.0
+  # startingCSV: opendatahub-operator.v1.4.2
   startingCSV: opendatahub-operator.v1.1.1
 EOF
 ```
 
-<br/>
+<!-- <br/>
 
 ```
+// Обновление
+
 $ export namespace=operators
 // $ export ips=$(kubectl get ip -n ${namespace} | grep Manual | grep false | awk '{print $1}')
 $ export ips=$(kubectl get ip -n ${namespace} | grep Automatic | grep true | awk '{print $1}')
@@ -73,7 +76,7 @@ done
 
 ```
 $ kubectl get installplan -A
-```
+``` -->
 
 <br/>
 
@@ -94,7 +97,9 @@ opendatahub-operator   opendatahub-operator   community-operators-redhat   stabl
 
 ```
 // 120 sec
-$ watch kubectl get pods -n operators
+$ k9s -n operators
+
+// $ watch kubectl get pods -n operators
 NAME                                   READY   STATUS    RESTARTS   AGE
 opendatahub-operator-b5f4c5757-d9td2   1/1     Running   0          15s
 ```

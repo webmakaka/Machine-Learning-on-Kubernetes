@@ -3,14 +3,8 @@
 <br/>
 
 ```
-$ minikube ip --profile ${PROFILE}
-192.168.49.2
-```
-
-<br/>
-
-```
-$ export MINIKUBE_IP_ADDR=192.168.49.2
+$ export MINIKUBE_IP_ADDR=$(minikube ip --profile ${PROFILE})
+$ echo ${MINIKUBE_IP_ADDR}
 ```
 
 <br/>

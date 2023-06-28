@@ -4,7 +4,7 @@
 
 Date:  
 19.01.2023 - not working anymore  
-20.05.2023 - still not working
+28.06.2023 - still not working
 
 <br/>
 
@@ -71,12 +71,32 @@ $ kustomize version
 ```
 $ export \
     PROFILE=marley-minikube \
+    CPUS=4 \
+    MEMORY=15G \
+    HDD=80G \
+    DRIVER=docker \
+    KUBERNETES_VERSION=v1.22.4
+```
+
+<br/>
+
+```
+$ export \
+    PROFILE=marley-minikube \
     CPUS=10 \
     MEMORY=30G \
     HDD=80G \
     DRIVER=docker \
     KUBERNETES_VERSION=v1.22.4
 ```
+
+<!-- export \
+    PROFILE=marley-minikube \
+    CPUS=4 \
+    MEMORY=15G \
+    HDD=80G \
+    DRIVER=docker \
+    KUBERNETES_VERSION=v1.26.6 -->
 
 <!--
 
@@ -135,15 +155,20 @@ $ eval $(minikube --profile ${PROFILE} docker-env)
 
 <br/>
 
+<!-- # docker pull quay.io/ml-on-k8s/airflow:2.2.3.worker
+# docker pull quay.io/ml-on-k8s/airflow:2.2.3.scheduler
+# docker pull quay.io/ml-on-k8s/airflow:2.2.3.web.keycloak
+# docker pull quay.io/ml-on-k8s/spark-operator:1.3.4 -->
+
 ```
 $ {
     docker pull quay.io/ml-on-k8s/redis-6:1-25
     docker pull quay.io/ml-aml-workshop/postgresql-96
     docker pull quay.io/ml-aml-workshop/mlflow:0.0.2
 
-    docker pull quay.io/ml-on-k8s/airflow:2.2.3.scheduler
-    docker pull quay.io/ml-on-k8s/airflow:2.2.3.web.keycloak
-    docker pull quay.io/ml-on-k8s/airflow:2.2.3.worker
+    docker pull quay.io/ml-on-k8s/airflow:2.0.0.scheduler
+    docker pull quay.io/ml-on-k8s/airflow:2.1.7.web.keycloak
+    docker pull quay.io/ml-on-k8s/airflow:2.0.0.worker
 
     docker pull quay.io/ml-on-k8s/hellomlflow-manual:1.0.0
 
@@ -151,7 +176,7 @@ $ {
     docker pull quay.io/ml-on-k8s/elyra-spark:0.0.4
 
     docker pull quay.io/ml-on-k8s/spark:3.2.0
-    docker pull quay.io/ml-on-k8s/spark-operator:1.3.4
+    docker pull quay.io/ml-on-k8s/spark-operator:1.3.3
 
     docker pull quay.io/ml-on-k8s/flights-data:5.0
 

@@ -36,7 +36,9 @@ $ kubectl create -f Chapter04/keycloak/keycloak.yaml -n keycloak
 
 ```
 // 60 sec
-$ watch kubectl get pods -n keycloak
+$ k9s -n keycloak
+
+// $ watch kubectl get pods -n keycloak
 NAME                        READY   STATUS    RESTARTS   AGE
 keycloak-75799d947b-l9mkw   1/1     Running   0          56s
 postgres-9db8ff595-vc8x2    1/1     Running   0          2m7s
@@ -83,7 +85,7 @@ $ envsubst < Chapter04/keycloak/keycloak-ingress.yaml | kubectl create -f - -n k
 <br/>
 
 ```
-$ kubectl get ingress -n keycloak
+// $ kubectl get ingress -n keycloak
 NAME       CLASS   HOSTS                          ADDRESS        PORTS     AGE
 keycloak   nginx   keycloak.192.168.49.2.nip.io   192.168.49.2   80, 443   4m8s
 ```

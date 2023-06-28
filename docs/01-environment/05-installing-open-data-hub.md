@@ -58,7 +58,7 @@ $ kubectl create ns ml-workshop
 <br/>
 
 ```
-// Run
+// Start Platform Creating
 $ envsubst < manifests/kfdef/ml-platform.yaml | kubectl create -f - -n ml-workshop
 ```
 

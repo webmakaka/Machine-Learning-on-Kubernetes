@@ -47,12 +47,32 @@ metadata:
   namespace: operators
 spec:
   channel: stable
-  installPlanApproval: Automatic
+  # installPlanApproval: Automatic
+  installPlanApproval: Manual
   name: opendatahub-operator
   source: community-operators-redhat
   sourceNamespace: olm
+  #startingCSV: opendatahub-operator.v1.4.2
   startingCSV: opendatahub-operator.v1.1.1
 EOF
+```
+
+<br/>
+
+```
+$ export namespace=operators
+// $ export ips=$(kubectl get ip -n ${namespace} | grep Manual | grep false | awk '{print $1}')
+$ export ips=$(kubectl get ip -n ${namespace} | grep Automatic | grep true | awk '{print $1}')
+
+$ for ip in $(echo $ips); do
+ kubectl -n ${namespace} patch installplan ${ip} -p '{"spec":{"approved":false}}' --type merge
+done
+```
+
+<br/>
+
+```
+$ kubectl get installplan -A
 ```
 
 <br/>

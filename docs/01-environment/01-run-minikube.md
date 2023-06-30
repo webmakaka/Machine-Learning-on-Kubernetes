@@ -49,7 +49,7 @@ Kustomize Version: v4.5.7
 
 ```
 $ minikube version
-minikube version: v1.28.0
+minikube version: v1.30.1
 ```
 
 <br/>
@@ -66,17 +66,17 @@ $ kustomize version
 {Version:kustomize/v4.5.7 GitCommit:56d82a8378dfc8dc3b3b1085e5a6e67b82966bd7 BuildDate:2022-08-02T16:35:54Z GoOs:linux GoArch:amd64}
 ```
 
-<br/>
+<!-- <br/>
 
 ```
 $ export \
     PROFILE=marley-minikube \
-    CPUS=4 \
-    MEMORY=15G \
+    CPUS=8 \
+    MEMORY=23G \
     HDD=80G \
     DRIVER=docker \
     KUBERNETES_VERSION=v1.22.4
-```
+``` -->
 
 <br/>
 

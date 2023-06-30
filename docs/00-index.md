@@ -55,5 +55,5 @@ https://quay.io/ml-aml-workshop/
 • Chapter 8. Building a Complete ML Project Using the Platform
 
 - [Chapter 9. Building Your Data Pipeline](./09-building-your-data-pipeline.md)
-- [Chapter 10. Building, Deploying, and Monitoring Your Model](./10-building-deploying-and-monitoring-your-model.md)  
+- [Chapter 10. Building, Deploying, and Monitoring Your Model](./10-building-deploying-and-monitoring-your-model.md)
   • Chapter 11. Machine Learning on Kubernetes

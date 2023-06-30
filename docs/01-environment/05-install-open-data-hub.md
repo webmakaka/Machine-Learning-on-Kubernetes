@@ -240,29 +240,4 @@ type: kubernetes.io/service-account-token
 
 ### Error: secret "airflow2-proxy" not found
 
-<br/>
-
-```yaml
-$ cat << EOF | kubectl apply -f -
-apiVersion: v1
-kind: Secret
-metadata:
-  name: airflow2-proxy
-  namespace: ml-workshop
-  annotations:
-    kubernetes.io/service-account.name: airflow2-proxy
-type: kubernetes.io/service-account-token
-EOF
-```
-
-<br/>
-
-```
-$ kubectl get secrets -n ml-workshop
-```
-
-<br/>
-
-```
-$ kubectl delete secret airflow2-proxy-token-trgls -n ml-workshop
-```
+Need to delete pod to recreate it

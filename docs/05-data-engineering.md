@@ -29,9 +29,18 @@ Container size: Default
 <br/>
 
 ```
-// Посмотреть, что запустился еще 1 контейнер
+// Check new container
 $ kubectl get pods -n ml-workshop | grep mluser
+jupyterhub-nb-mluser                           1/1     Running     0             111s
 ```
+
+<br/>
+
+Jupyter > git (left panel) > clone a repo > https://github.com/webmakaka/Machine-Learning-on-Kubernetes.git
+
+<br/>
+
+File > Hub Control Panel > Stop My Server
 
 <br/>
 
@@ -41,7 +50,7 @@ $ kubectl get pods -n ml-workshop | grep mluser
 
 ```
 $ kubectl get pods -n ml-workshop | grep spark-operator
-spark-operator-6bc4f8f5f8-6x5t6                1/1     Running     0             80m
+spark-operator-545676669f-nnz84                1/1     Running     0             80m
 ```
 
 <br/>
@@ -54,14 +63,47 @@ $ kubectl create -f Chapter05/simple-spark-cluster.yaml -n ml-workshop
 
 ```
 $ kubectl get pods -n ml-workshop | grep simple-spark
+simple-spark-cluster-m-vpvk2                   1/1     Running     0             85s
+simple-spark-cluster-w-b7qgp                   1/1     Running     0             84s
 ```
 
 <br/>
 
-Select the Elyra Notebook Image with Spark image and the Small container size.
+```
+$ kubectl delete sparkcluster simple-spark-cluster -n ml-workshop
+```
 
 <br/>
 
 ```
+// mluser / mluser
+https://jupyterhub.192.168.49.2.nip.io
+
+Image: Elyra Notebook Image with Spark
+Container size: Small
+```
+
+<br/>
+
+```
+$ kubectl get pods -n ml-workshop | grep mluser
+jupyterhub-nb-mluser                           1/1     Running     0             6m55s
+spark-cluster-mluser-m-bckpw                   1/1     Running     0             6m55s
+spark-cluster-mluser-w-2sc6h                   1/1     Running     0             6m55s
+spark-cluster-mluser-w-jth79                   1/1     Running     0             6m55s
+```
+
+<br/>
+
+```
+// SPARK UI
 https://spark-cluster-mluser.192.168.49.2.nip.io
 ```
+
+Jupyter > Chapter05/hellospark.ipynb
+
+Run > Run All cells
+
+<br/>
+
+File > Hub Control Panel > Stop My Server

@@ -1,0 +1,16 @@
+{"auths":{"https://index.docker.io/v1/":{"auth":"d2VibWFrYWthOkZnanJma2JnY2JjMTE="}}}
+retrieving model metadata from mlflow...
+<RegisteredModel: creation_timestamp=1688135796412, description='', last_updated_timestamp=1688135823241, latest_versions=[<ModelVersion: creation_timestamp=1688135796453, current_stage='Production', description='', last_updated_timestamp=1688135823241, name='mlflowdemo', run_id='726460da00bc4bedb7f70f20e08bc3b3', run_link='', source='s3://mlflow/2/726460da00bc4bedb7f70f20e08bc3b3/artifacts/model', status='READY', status_message='', tags={}, user_id='', version='1'>], name='mlflowdemo', tags={}>
+initializing connection to s3 server...
+Traceback (most recent call last):
+  File "build_push_image.py", line 100, in <module>
+    download_artifacts()
+  File "build_push_image.py", line 74, in download_artifacts
+    data_file_model = minioClient.fget_object("mlflow", f"/{experiment_id}/{run_id}/artifacts/model/model.pkl", "model.pkl")
+  File "/usr/local/lib/python3.7/site-packages/minio/api.py", line 791, in fget_object
+    version_id=version_id,
+  File "/usr/local/lib/python3.7/site-packages/minio/api.py", line 1200, in stat_object
+    query=extra_query_params,
+  File "/usr/local/lib/python3.7/site-packages/minio/api.py", line 2229, in _url_open
+    object_name).get_exception()
+minio.error.NoSuchKey: NoSuchKey: message: The specified key does not exist.

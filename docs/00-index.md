@@ -44,7 +44,7 @@ https://quay.io/ml-aml-workshop/
 
 - [Chapter 5. Data Engineering](./05-data-engineering.md)
 - [Chapter 6. Machine Learning Engineering](./06-machine-learning-engineering.md)
-- [Chapter 7. Model Deployment and Automation](./07-model-deployment-and-automation.md)
+- [Chapter 7. Model Deployment and Automation](./07.1-model-deployment-and-automation-seldon.md)
 
 <br/>
 

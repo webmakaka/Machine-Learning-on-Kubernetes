@@ -2,6 +2,14 @@
 
 https://github.com/opendatahub-io/opendatahub-operator
 
+<br/>
+
+```
+$ eval $(minikube --profile ${PROFILE} docker-env)
+$ docker pull registry.access.redhat.com/redhat/community-operator-index:v4.9
+$ docker pull quay.io/opendatahub/opendatahub-operator:v1.1.1
+```
+
 <!-- <br/>
 
 // looks next method is not working right now

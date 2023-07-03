@@ -41,7 +41,7 @@ data:
           - name: spark-cluster-template
             path: sparkClusterTemplate
           configuration:
-            worker_nodes: '1'
+            worker_nodes: '2'
             master_nodes: '1'
             master_memory_limit: '2Gi'
             master_cpu_limit: '750m'

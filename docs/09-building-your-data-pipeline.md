@@ -31,6 +31,8 @@ $ kubectl create -f Chapter09/service-pg-flights-data.yaml -n ml-workshop
 
 <br/>
 
+### Postgres Data Checks
+
 ```
 $ POD_NAME=$(kubectl get pods -n ml-workshop -l app=pg-flights-data -o jsonpath="{.items[0].metadata.name}")
 ```
@@ -187,6 +189,18 @@ print(dfAirports.count())
 print(dfAirlines.count())
 
 spark.stop()
+```
+
+<br/>
+
+// check logs in container  
+jupyterhub-nb-admin
+
+<br/>
+
+```
+// SPARK UI
+https://spark-cluster-mluser.192.168.49.2.nip.io
 ```
 
 <br/>

@@ -2,6 +2,18 @@
 
 <br/>
 
+```
+$ eval $(minikube --profile ${PROFILE} docker-env)
+```
+
+<br/>
+
+```
+$ docker pull quay.io/ml-on-k8s/spark:3.2.0
+```
+
+<br/>
+
 На этом шаге подготавливаем данные.
 
 <br/>
@@ -20,12 +32,6 @@ $ kubectl create -f Chapter09/deployment-pg-flights-data.yaml -n ml-workshop
 
 ```
 $ kubectl create -f Chapter09/service-pg-flights-data.yaml -n ml-workshop
-```
-
-<br/>
-
-```
-$ watch kubectl get pods -n ml-workshop
 ```
 
 <br/>
@@ -87,12 +93,12 @@ Buckets -> Create Bucket > flights-data
 
 <br/>
 
-Загрузить 2 файла из Chapter09/data/
+airport-data Load 2 files from Chapter09/data/
 
 <br/>
 
-- airlines.csv
 - airports.csv
+- airlines.csv
 
 <br/>
 
@@ -102,16 +108,17 @@ Buckets -> Create Bucket > flights-data
 
 ```
 // mluser / mluser
-https://jupyterhub.192.168.49.2.nip.io/hub/spawn
+https://jupyterhub.192.168.49.2.nip.io/
 ```
 
 <br/>
 
 ```
-Elyra Notebook Image with Spark
+Notebook Image: Elyra Notebook Image with Spark
 
 // Large не стартовал. Там запрос на 4 CPU 16 GB
-// Medium не помню. Small отработал после отключения Grafana и Prometheus
+// Medium тоже.
+// Small отработал после отключения Grafana и Prometheus
 Container size: Small
 
 Start server
@@ -119,25 +126,60 @@ Start server
 
 <br/>
 
-Clone: https://github.com/webmakaka/Machine-Learning-on-Kubernetes.git
-
-<br/>
-
 ```
-RUN -> Chapter09/explore_data.ipynb
+$ k9s -n ml-workshop
 ```
 
 <br/>
 
-Последний блок завершился ошибкой. М.б. из-за того, что не Large
+```
+jupyter -> RUN -> Chapter09/explore_data.ipynb
+```
+
+<br/>
+
+Последний блок работает так.
+
+<br/>
+
+```
+import os
+from pyspark.sql import SparkSession
+spark = SparkSession \
+    .builder \
+    .appName("Python Spark S3 example") \
+    .config("spark.hadoop.fs.s3a.endpoint", "http://minio-ml-workshop:9000")\
+    .config("spark.hadoop.fs.s3a.access.key", 'minio')\
+    .config("spark.hadoop.fs.s3a.secret.key", 'minio123')\
+    .config("spark.hadoop.fs.s3a.impl", "org.apache.hadoop.fs.s3a.S3AFileSystem")\
+    .config("spark.hadoop.fs.s3a.multipart.size", "104857600")\
+    .config("spark.hadoop.fs.s3a.path.style.access", "true")\
+    .getOrCreate()
+
+dfAirlines = spark.read\
+                .options(delimeter=',', inferSchema='True', header='True') \
+                .csv("s3a://airport-data/airlines.csv")
+
+dfAirlines.printSchema()
+
+dfAirports = spark.read \
+                .options(delimiter=',', inferSchema='True', header='True') \
+                .csv("s3a://airport-data/airports.csv")
+
+dfAirports.printSchema()
+
+dfAirports.show(truncate=False)
+dfAirlines.show(truncate=False)
+
+print(dfAirports.count())
+print(dfAirlines.count())
+
+spark.stop()
+```
 
 <br/>
 
 ### Designing and building the pipeline
-
-<!--
-Replicationcontrollers
--->
 
 <br/>
 
@@ -160,7 +202,7 @@ https://jupyterhub.192.168.49.2.nip.io/
 
 <br/>
 
-Runtime Images (слева) -> Добавить
+Runtime Images (from left) -> Add
 
 <br/>
 

@@ -12,21 +12,6 @@ $ echo ${MINIKUBE_IP_ADDR}
 ```
 // Crate empty github repo with branch name main
 https://github.com/wildmakaka/airflow-dags
-
-
-Also i added ssh token to github account
-```
-
-<br/>
-
-```
-echo "# airflow-dags" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin git@github.com:wildmakaka/airflow-dags.git
-git push -u origin main
 ```
 
 <br/>
@@ -60,8 +45,9 @@ $ envsubst < manifests/kfdef/ml-platform.yaml | kubectl create -f - -n ml-worksh
 
 ```
 // Need to wait something about 15 minutes
-// $ watch kubectl get pods -n ml-workshop
 $ k9s -n ml-workshop
+
+// $ watch kubectl get pods -n ml-workshop
 ```
 
 <br/>

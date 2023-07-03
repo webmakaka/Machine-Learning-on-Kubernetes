@@ -14,29 +14,13 @@ $ cd ~/projects/dev/ml/Machine-Learning-on-Kubernetes
 ```
 $ kubectl create ns keycloak
 $ kubectl create -f Chapter04/postgresdb/ -n keycloak
-```
-
-<br/>
-
-```
-// 30 sec
-$ watch kubectl get pods -n keycloak
-NAME                        READY   STATUS    RESTARTS   AGE
-postgres-655d75f54b-xzvh6   1/1     Running   0          30s
-```
-
-<br/>
-
-```
 $ kubectl create -f Chapter04/keycloak/keycloak.yaml -n keycloak
+$ k9s -n keycloak
 ```
 
 <br/>
 
 ```
-// 60 sec
-$ k9s -n keycloak
-
 // $ watch kubectl get pods -n keycloak
 NAME                        READY   STATUS    RESTARTS   AGE
 keycloak-75799d947b-l9mkw   1/1     Running   0          56s

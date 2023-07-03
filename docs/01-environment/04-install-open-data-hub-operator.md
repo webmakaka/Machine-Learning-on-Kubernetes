@@ -2,10 +2,10 @@
 
 https://github.com/opendatahub-io/opendatahub-operator
 
-<br/>
+<!-- <br/>
 
-// looks next method is not working right now  
-https://dev.operatorhub.io/operator/opendatahub-operator
+// looks next method is not working right now
+https://dev.operatorhub.io/operator/opendatahub-operator -->
 
 <br/>
 
@@ -58,6 +58,21 @@ spec:
 EOF
 ```
 
+<br/>
+
+When start, need to run same yaml with Manual option, otherwise it updates on broken version.
+
+<br/>
+
+```
+// 120 sec
+$ k9s -n operators
+
+// $ kubectl get pods -n operators
+NAME                                   READY   STATUS    RESTARTS   AGE
+opendatahub-operator-b5f4c5757-d9td2   1/1     Running   0          15s
+```
+
 <!-- <br/>
 
 ```
@@ -81,7 +96,7 @@ $ kubectl get installplan -A
 <br/>
 
 ```
-$ watch kubectl get subscription -n operators
+$ kubectl get subscription -n operators
 NAME                   PACKAGE                SOURCE                       CHANNEL
 opendatahub-operator   opendatahub-operator   community-operators-redhat   stable
 ```
@@ -91,15 +106,4 @@ opendatahub-operator   opendatahub-operator   community-operators-redhat   stabl
 ```
 // $ kubectl describe catalogsource community-operators-redhat -n olm
 // $ kubectl describe catalogsource operatorhubio-catalog -n olm
-```
-
-<br/>
-
-```
-// 120 sec
-$ k9s -n operators
-
-// $ watch kubectl get pods -n operators
-NAME                                   READY   STATUS    RESTARTS   AGE
-opendatahub-operator-b5f4c5757-d9td2   1/1     Running   0          15s
 ```

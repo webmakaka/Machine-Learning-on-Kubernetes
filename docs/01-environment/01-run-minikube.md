@@ -87,7 +87,7 @@ $ export \
     MEMORY=30G \
     HDD=80G \
     DRIVER=docker \
-    KUBERNETES_VERSION=v1.22.4
+    KUBERNETES_VERSION=v1.24.4
 ```
 
 <!-- export \
@@ -102,9 +102,7 @@ $ export \
 
 В книге
 v1.22.4
-
- // У чела заработало с
-// v1.24.0 -->
+ -->
 
 <br/>
 

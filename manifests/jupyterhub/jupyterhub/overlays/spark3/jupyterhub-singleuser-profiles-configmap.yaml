@@ -10,7 +10,7 @@ data:
         - name: S3_ENDPOINT_URL
           value: $(s3_endpoint_url)
         - name: HADOOP_HOME
-          value: /opt/spark/jars  
+          value: /opt/spark/jars
 
       resources:
         requests:
@@ -24,13 +24,13 @@ data:
       images:
       - quay.io/ml-on-k8s/elyra-spark:0.0.4
       env:
-        - name: PYSPARK_SUBMIT_ARGS 
+        - name: PYSPARK_SUBMIT_ARGS
           value: '--conf spark.cores.max=2 --conf spark.executor.instances=1 --conf spark.executor.memory=3g --conf spark.executor.cores=1 --conf spark.driver.memory=2G --packages org.apache.hadoop:hadoop-aws:3.2.0 pyspark-shell' 
-        - name: PYSPARK_DRIVER_PYTHON 
-          value: 'jupyter' 
-        - name: PYSPARK_DRIVER_PYTHON_OPTS 
-          value: 'notebook' 
-        - name: PYTHONPATH 
+        - name: PYSPARK_DRIVER_PYTHON
+          value: 'jupyter'
+        - name: PYSPARK_DRIVER_PYTHON_OPTS
+          value: 'notebook'
+        - name: PYTHONPATH
           value: '$PYTHONPATH:/opt/app-root/lib/python3.8/site-packages/:/opt/app-root/lib/python3.8/site-packages/pyspark/python/:/opt/app-root/lib/python3.8/site-packages/pyspark/python/lib/py4j-0.10.9-src.zip'
 
       services:
@@ -41,7 +41,7 @@ data:
           - name: spark-cluster-template
             path: sparkClusterTemplate
           configuration:
-            worker_nodes: '2'
+            worker_nodes: '1'
             master_nodes: '1'
             master_memory_limit: '2Gi'
             master_cpu_limit: '750m'

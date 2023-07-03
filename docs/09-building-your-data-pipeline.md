@@ -3,13 +3,8 @@
 <br/>
 
 ```
-$ eval $(minikube --profile ${PROFILE} docker-env)
-```
-
-<br/>
-
-```
-$ docker pull quay.io/ml-on-k8s/spark:3.2.0
+// $ eval $(minikube --profile ${PROFILE} docker-env)
+// $ docker pull quay.io/ml-on-k8s/spark:3.2.0
 ```
 
 <br/>
@@ -133,6 +128,23 @@ $ k9s -n ml-workshop
 <br/>
 
 ```
+$ kubectl get pods -n ml-workshop | grep spark
+spark-cluster-admin-m-9p8dx                   1/1     Running     0             5m46s
+spark-cluster-admin-w-7jqhp                   1/1     Running     0             5m46s
+spark-cluster-admin-w-pw9dw                   1/1     Running     0             5m46s
+spark-operator-7484d45984-5wsvt               1/1     Running     0             109m
+```
+
+<br/>
+
+```
+m - master
+w - worker
+```
+
+<br/>
+
+```
 jupyter -> RUN -> Chapter09/explore_data.ipynb
 ```
 
@@ -142,7 +154,7 @@ jupyter -> RUN -> Chapter09/explore_data.ipynb
 
 <br/>
 
-```
+```python
 import os
 from pyspark.sql import SparkSession
 spark = SparkSession \

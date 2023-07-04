@@ -1,12 +1,8 @@
-# Run minikube
+# Prepare environment for labs
 
 <br/>
 
-Date:  
-19.01.2023 - not working anymore  
-28.06.2023 - still not working
-
-<br/>
+### Run minikube
 
 ```
 $ lsb_release -a
@@ -173,7 +169,7 @@ $ {
     docker pull quay.io/ml-on-k8s/scikit-notebook:v1.2.0
     docker pull quay.io/ml-on-k8s/elyra-spark:0.0.4
 
-    docker pull quay.io/ml-on-k8s/spark:3.2.0
+    docker pull quay.io/ml-on-k8s/spark:3.0.0
     docker pull quay.io/ml-on-k8s/spark-operator:1.3.3
 
     docker pull quay.io/ml-on-k8s/flights-data:5.0

@@ -41,7 +41,7 @@ data:
           - name: spark-cluster-template
             path: sparkClusterTemplate
           configuration:
-            worker_nodes: '2'
+            worker_nodes: '1'
             master_nodes: '1'
             master_memory_limit: '2Gi'
             master_cpu_limit: '750m'
@@ -51,6 +51,6 @@ data:
             worker_cpu_limit: '2'
             worker_memory_request: '2Gi'
             worker_cpu_request: '1'
-            spark_image: 'quay.io/ml-on-k8s/spark:3.2.0'
+            spark_image: 'quay.io/ml-on-k8s/spark:3.0.0'
           return:
             SPARK_CLUSTER: 'metadata.name'

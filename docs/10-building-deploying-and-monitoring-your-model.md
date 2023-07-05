@@ -66,6 +66,10 @@ MLFlow > Models > flights-ontime > Stage > Production
 
 <br/>
 
+Maebe need to copy FlgithsDelayOrdinalEncoder.pkl to model_build_push folder and add it in properties for build_push_image.py
+
+<br/>
+
 Chapter10/model_deploy_pipeline/flights_model.pipeline
 
 <br/>
@@ -206,3 +210,5 @@ $ kubectl get service -n ml-workshop | grep prometheus-operated
 <br/>
 
 Grafana UI do not show anything.
+
+Something bad with prometheus-odh-monitoring, i think.

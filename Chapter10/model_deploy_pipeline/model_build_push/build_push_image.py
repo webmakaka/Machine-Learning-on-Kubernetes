@@ -19,6 +19,7 @@ from mlflow.tracking import MlflowClient
 
 os.environ['MLFLOW_S3_ENDPOINT_URL']='http://minio-ml-workshop:9000'
 os.environ['AWS_ACCESS_KEY_ID']='minio'
+os.environ['AWS_SECRET_ACCESS_KEY']='minio123'
 os.environ['AWS_REGION']='us-east-1'
 os.environ['AWS_BUCKET_NAME']='mlflow'
 
@@ -68,7 +69,7 @@ def download_artifacts():
         run_id = latest_version.run_id
         source = latest_version.source
         experiment_id = latest_version.source.split("/")[3]
-        print(latest_version)    
+        print(latest_version)
 
     # run_id = model._latest_version[0].run_id
     # source = model._latest_version[0].source

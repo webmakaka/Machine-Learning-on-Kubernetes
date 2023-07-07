@@ -11,13 +11,14 @@ spec:
   serviceAccountName: prometheus-k8s
   securityContext: {}
   serviceMonitorNamespaceSelector: {}
-  serviceMonitorSelector: {}  
+  serviceMonitorSelector: {}
   # serviceMonitorSelector:
   #     matchLabels:
   #       team: opendatahub
-  podMonitorSelector: {}
-      # matchLabels:
-      #   team: opendatahub
+  podMonitorSelector:
+    {}
+    # matchLabels:
+    #   team: opendatahub
   ruleSelector: {}
 
 ---
@@ -36,10 +37,9 @@ spec:
     # matchNames:
     # - ml-workshop
   endpoints:
-  - port: "8000"
-    path: /prometheus
-    interval: 10s
-
+    - port: '8000'
+      path: /prometheus
+      interval: 10s
 # apiVersion: monitoring.coreos.com/v1
 # kind: ServiceMonitor
 # metadata:
@@ -55,4 +55,4 @@ spec:
 #   endpoints:
 #   - port: http
 #     path: /prometheus
-#     interval: 10s    
+#     interval: 10s

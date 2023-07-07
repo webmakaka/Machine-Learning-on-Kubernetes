@@ -7,5 +7,3 @@ spec:
   name: prometheus
   source: community-operators-redhat
   sourceNamespace: olm
-
-  

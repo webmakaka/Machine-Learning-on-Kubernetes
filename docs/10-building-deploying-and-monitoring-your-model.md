@@ -203,6 +203,8 @@ seldondeployments
 
 ### Monitoring your model
 
+[How to Fix Issue](https://github.com/PacktPublishing/Machine-Learning-on-Kubernetes/issues/15#issuecomment-1649108272)
+
 ```
 // admin / admin
 https://grafna.192.168.49.2.nip.io

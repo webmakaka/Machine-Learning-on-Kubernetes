@@ -178,6 +178,9 @@ $ {
 
     docker pull quay.io/ml-on-k8s/kaniko-container-builder:1.0.0
     docker pull quay.io/ml-on-k8s/airflow-python-runner:0.0.11
+
+    docker pull registry.access.redhat.com/redhat/community-operator-index:v4.9
+    docker pull quay.io/opendatahub/opendatahub-operator:v1.1.2
 }
 ```
 

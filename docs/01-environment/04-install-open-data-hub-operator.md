@@ -68,6 +68,20 @@ EOF
 
 <br/>
 
+```
+$ kubectl get installplan -n operators
+NAME            CSV                           APPROVAL   APPROVED
+install-dcjt8   opendatahub-operator.v1.1.2   Manual     false
+```
+
+<br/>
+
+```
+$ kubectl patch installplan install-dcjt8 -n operators --type merge -p '{"spec":{"approved":true}}'
+```
+
+<br/>
+
 When start, need to run same yaml with Manual option, otherwise it updates on broken version.
 
 <br/>

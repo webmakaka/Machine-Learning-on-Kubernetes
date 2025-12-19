@@ -55,8 +55,8 @@ metadata:
   namespace: operators
 spec:
   channel: stable
-  installPlanApproval: Automatic
-  # installPlanApproval: Manual
+  # installPlanApproval: Automatic
+  installPlanApproval: Manual
   name: opendatahub-operator
   source: community-operators-redhat
   sourceNamespace: olm

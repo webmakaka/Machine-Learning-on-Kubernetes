@@ -7,7 +7,7 @@ https://github.com/opendatahub-io/opendatahub-operator
 ```
 $ eval $(minikube --profile ${PROFILE} docker-env)
 $ docker pull registry.access.redhat.com/redhat/community-operator-index:v4.9
-$ docker pull quay.io/opendatahub/opendatahub-operator:v1.1.1
+$ docker pull quay.io/opendatahub/opendatahub-operator:v1.1.2
 ```
 
 <!-- <br/>
@@ -62,7 +62,7 @@ spec:
   sourceNamespace: olm
   # startingCSV: opendatahub-operator.v1.6.0
   # startingCSV: opendatahub-operator.v1.4.2
-  startingCSV: opendatahub-operator.v1.1.1
+  startingCSV: opendatahub-operator.v1.1.2
 EOF
 ```
 

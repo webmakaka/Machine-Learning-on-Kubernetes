@@ -1,6 +1,6 @@
-# Machine Learning on Kubernetes
+# Machine Learning on Kubernetes [ENG]
 
-<img src="https://static.packt-cdn.com/products/9781803241807/cover/smaller" alt="Machine Learning on Kubernetes" height="256px" align="right">
+<img src="./img/Machine-Learning-on-Kubernetes.png" alt="Machine Learning on Kubernetes" height="256px" align="right">
 
 ### Technical requirements
 

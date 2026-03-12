@@ -129,3 +129,11 @@ Temporary: OFF
 
 Set Password
 ```
+
+<br/><br/>
+
+---
+
+<br/>
+
+<a href="https://k8s.ru/">Предложить инженеру работу / подработку на проекте с kubernetes, microservices, machine learning, golang</a>

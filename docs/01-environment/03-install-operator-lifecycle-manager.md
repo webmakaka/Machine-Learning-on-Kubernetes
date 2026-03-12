@@ -35,3 +35,11 @@ $ kubectl get catalogsource -n olm
 NAME                    DISPLAY               TYPE   PUBLISHER        AGE
 operatorhubio-catalog   Community Operators   grpc   OperatorHub.io   4m8s
 ```
+
+<br/><br/>
+
+---
+
+<br/>
+
+<a href="https://k8s.ru/">Предложить инженеру работу / подработку на проекте с kubernetes, microservices, machine learning, golang</a>

@@ -190,3 +190,11 @@ $ minikube --profile ${PROFILE} kubectl -- get sc
 NAME                 PROVISIONER                RECLAIMPOLICY   VOLUMEBINDINGMODE   ALLOWVOLUMEEXPANSION   AGE
 standard (default)   k8s.io/minikube-hostpath   Delete          Immediate           false                  3h4m
 ``` -->
+
+<br/><br/>
+
+---
+
+<br/>
+
+<a href="https://k8s.ru/">Предложить инженеру работу / подработку на проекте с kubernetes, microservices, machine learning, golang</a>

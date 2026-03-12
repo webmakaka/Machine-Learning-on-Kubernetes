@@ -20,5 +20,12 @@
 
 **Marley**
 
-Запуск примеров разбирался <a href="https://mlops.ru/books/machine-learning-on-kubernetes/">здесь</a>  
-Любые вопросы на русском: <a href="https://mlops.ru/chat/">Телеграм чат</a>
+Запуск примеров разбирался <a href="https://mlops.ru/books/machine-learning-on-kubernetes/">здесь</a>
+
+<br/><br/>
+
+---
+
+<br/>
+
+<a href="https://k8s.ru/">Предложить инженеру работу / подработку на проекте с kubernetes, microservices, machine learning, golang</a>

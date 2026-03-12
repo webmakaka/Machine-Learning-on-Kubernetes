@@ -227,3 +227,11 @@ type: kubernetes.io/service-account-token
 ### Error: secret "airflow2-proxy" not found
 
 Need to delete pod to recreate it
+
+<br/><br/>
+
+---
+
+<br/>
+
+<a href="https://k8s.ru/">Предложить инженеру работу / подработку на проекте с kubernetes, microservices, machine learning, golang</a>

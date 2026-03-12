@@ -370,3 +370,11 @@ scrape_configs:
     follow_redirects: true
     enable_http2: true
 ```
+
+<br/><br/>
+
+---
+
+<br/>
+
+<a href="https://k8s.ru/">Предложить инженеру работу / подработку на проекте с kubernetes, microservices, machine learning, golang</a>

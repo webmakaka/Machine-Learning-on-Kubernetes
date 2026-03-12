@@ -129,3 +129,11 @@ opendatahub-operator   opendatahub-operator   community-operators-redhat   stabl
 // $ kubectl describe catalogsource community-operators-redhat -n olm
 // $ kubectl describe catalogsource operatorhubio-catalog -n olm
 ```
+
+<br/><br/>
+
+---
+
+<br/>
+
+<a href="https://k8s.ru/">Предложить инженеру работу / подработку на проекте с kubernetes, microservices, machine learning, golang</a>

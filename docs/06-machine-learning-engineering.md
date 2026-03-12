@@ -115,3 +115,11 @@ MLFlow > Models > mlflowdemo > Stage > Production
 // To Debug
 print(os.environ)
 ```
+
+<br/><br/>
+
+---
+
+<br/>
+
+<a href="https://k8s.ru/">Предложить инженеру работу / подработку на проекте с kubernetes, microservices, machine learning, golang</a>

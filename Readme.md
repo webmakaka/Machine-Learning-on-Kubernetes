@@ -1,4 +1,4 @@
-# Machine Learning on Kubernetes [ENG]
+# [Book] [Faisal Masood, Ross Brigoli] Machine Learning on Kubernetes [ENG, 2022] (DEPRECATED)
 
 <img src="./img/Machine-Learning-on-Kubernetes.png" alt="Machine Learning on Kubernetes" height="256px" align="right">
 

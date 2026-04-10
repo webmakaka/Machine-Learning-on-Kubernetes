@@ -114,4 +114,4 @@ File > Hub Control Panel > Stop My Server
 
 <br/>
 
-<a href="https://k8s.ru/">Предложить инженеру работу / подработку на проекте с kubernetes, microservices, machine learning, golang</a>
+<a href="https://mlops.ru/">Предложить инженеру работу / подработку на проекте с kubernetes, microservices, machine learning, golang</a>

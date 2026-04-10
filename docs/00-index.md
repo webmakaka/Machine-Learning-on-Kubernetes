@@ -64,4 +64,4 @@ https://quay.io/ml-aml-workshop/
 
 <br/>
 
-<a href="https://k8s.ru/">Предложить инженеру работу / подработку на проекте с kubernetes, microservices, machine learning, golang</a>
+<a href="https://mlops.ru/">Предложить инженеру работу / подработку на проекте с kubernetes, microservices, machine learning, golang</a>

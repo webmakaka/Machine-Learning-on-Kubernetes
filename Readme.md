@@ -50,7 +50,7 @@
 
 **Marley**
 
-Запуск примеров разбирался <a href="https://mlops.ru/books/machine-learning-on-kubernetes/">здесь</a>
+Запуск примеров разбирался <a href="https://docs.mlops.ru/books/machine-learning-on-kubernetes/">здесь</a>
 
 <br/><br/>
 
